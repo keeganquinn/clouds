@@ -1,0 +1,162 @@
+/* control.css is the general stylesheet for cloudscontrol.us */
+
+*		{
+    margin: 0;
+    padding: 0;
+	}
+
+body		{
+    background: url("bg.jpg") top left repeat-x;
+    text-align: center;
+    font: 10px Verdana, Helvetica, Arial, Sans-serif;
+    margin: 0 auto;
+    padding : 0;	
+ 	}
+
+h1		{	
+	font: 18px Verdana, Helvetica, Arial, Sans-serif;
+	text-align: right;
+	margin-bottom: 2em;
+	margin-top: 1em;
+		}
+	
+h2		{
+    font-family: Verdana, Helvetica, Arial, Sans-serif;
+	font-size: 14px;
+	margin-top: 1em;
+	}
+
+p		{
+	font: 10px Verdana, Helvetica, Arial, Sans-serif;
+	line-height: 16px;
+	color: white;
+	margin-bottom: 1em;
+	text-indent: 1em;
+	}
+	
+a	 	{
+    color: red;
+    text-decoration: none;
+	}
+
+a:hover 		{
+    color: #666699;
+	}
+
+a:visited 	{
+    text-decoration: none;
+	}
+
+.clear	 	{
+	position: relative;
+	clear: both;
+	}
+	
+.imageDisplay	{
+	position: relative;
+	float: left;
+	margin: 0 1em 2em 1em;
+	}
+
+.centeredstuff	{
+	text-align: center;
+	}
+	
+#container	{
+	margin: 0 auto;
+	margin-top: 1em;
+	margin-bottom: 3em;
+	width: 774px;
+	height: auto;
+	text-align: center;
+	border: 1px solid white;
+	background: black;
+	}
+
+#banr		{ 
+	position: relative;
+	float: left;
+	background: url("cloudbanr.jpg") top left no-repeat;
+	width: 774px;
+	height: 114px;
+	}
+
+#navbar		{
+	background: black url("navbg.jpg") top left repeat-x;
+	width: 774px;
+	height: 24px;
+	line-height: 18px;
+	color: silver;
+	text-align: right;
+	}
+
+#navbar li	{
+	display: inline;
+	}
+
+#navbar ul li a	{
+	height: 18px;
+	padding-left: 8px;
+	padding-right: 6px;
+	padding-top: 4px;
+	color: black;
+	float: left;
+	border-right: 1px solid black;
+	}
+	
+#navbar ul li a:hover {
+	background-color: silver;
+	color: black;
+	border-top: 2px solid black;
+	}
+	
+#contentContainer	{
+	background: black;
+	width: 774px;
+	min-height: 600px;
+	}
+	
+#newsboxL	{
+	position: relative;
+	float: right;
+	padding-left: 4px;
+	padding-right: 4px;
+	margin: 4px 0 0 4px;
+	width: 212px;
+	height: 300px;
+	background: url("newsbox.jpg") top right no-repeat ;
+	text-align: right;
+	}
+
+#mainContent	{
+	position: relative;
+	float: left;
+	padding: 4px;
+	width: 766px;
+	min-height: 600px;
+	background: black;
+	color: white;
+	text-align: left;
+	}
+
+#fullContent	{
+	position: relative;
+	float: left;
+	padding: 4px;
+	margin: 0 20px 0 20px;
+	width: 728px;
+	min-height: 600px;
+	background: black;
+	color: white;
+	text-align: left;
+	}
+	
+#foot	{
+	width: 774px;
+	height: 24px;
+	line-height: 28px;
+	background: url("navbg.jpg") top left repeat-x;
+	color: black;
+	text-align: right;
+	}
+
