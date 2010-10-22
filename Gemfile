@@ -3,8 +3,11 @@ source 'http://rubygems.org'
 gem 'rails', '3.0.1'
 
 gem 'capistrano'
+gem 'devise'
+gem 'haml'
 
 group :development, :test do
+  gem 'autotest-rails'
   gem 'cucumber-rails'
   gem 'railroad'
   gem 'rspec-rails'
