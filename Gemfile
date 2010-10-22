@@ -9,9 +9,11 @@ group :development, :test do
   gem 'railroad'
   gem 'rspec-rails'
   gem 'sqlite3-ruby', :require => 'sqlite3'
+  gem 'webrat'
 end
 
 group :production do
-  gem 'pg'
+  # Eventually, we'll be using Pg in production
+  #gem 'pg'
+  gem 'sqlite3-ruby', :require => 'sqlite3'
 end
-
