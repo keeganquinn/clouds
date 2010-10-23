@@ -4,4 +4,4 @@
 require File.expand_path('../config/application', __FILE__)
 require 'rake'
 
-CloudscontrolUs::Application.load_tasks
+Clouds::Application.load_tasks
