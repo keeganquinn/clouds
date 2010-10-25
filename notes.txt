@@ -1,0 +1,27 @@
+notes.txt
+
+[] important notes for cloudscontrol.us []
+
+string:
+ -get new working homepage ready 
+  *incorporate login/pass area
+  *better organization for current featured artists, room for at least 2-3 featured?
+ -profile page
+
+keegan:
+ -update important stuff.
+ 
+
+[] not quite as important notes []
+
+string: 
+ -learn html 5 and how to incorporate new organization methods 
+ -clean up design, css3
+
+
+
+
+[] brainstorming area []
+
+ -functionality/features
+  *
