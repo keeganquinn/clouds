@@ -10,6 +10,7 @@ role :db, domain, :primary => true
 
 set :use_sudo, false
 set :deploy_to, "/srv/rails/#{application}"
+set :deploy_via, :copy
 
 namespace :deploy do
   task :start do ; end
