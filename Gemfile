@@ -5,6 +5,8 @@ gem 'rails'
 gem 'capistrano'
 gem 'devise'
 gem 'haml'
+gem 'hpricot'
+gem 'ruby_parser'
 
 group :development, :test do
   gem 'autotest-rails'
