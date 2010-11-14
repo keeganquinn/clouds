@@ -1,13 +1,14 @@
 #news
-  %h2= t('.new_stuff')
   :textile
+    h2. New Stuff
+
     This site is still under construction. We expect to have user registration up and running soon.
 
     Meanwhile, check out "sniz.org":http://sniz.org for other news from the cloud creators.
 
-%h1= t('.title')
-
 :textile
+  h1. Welcome
+
   *cloudscontrol.us* is a private community of musicians, artists, and creatives.
 
   This site allows users to easily share files and collaborate on projects. It's not just about sharing files, but also easily sharing your work with your friends and peers.
@@ -16,10 +17,9 @@
 
   Stuff is fluffy.
 
-.image
-  = image_tag 'feat_string.jpg', :alt => 'featured: string'
 
-%h1= t('.featured_artist')
+  !#{image_path 'feat_string.jpg'}(Featured Artist: string)!
 
-:textile
+  h1. Featured Artist
+
   ::*string*:: is an experimental electronic artist currently working on his third release. He has made this work in progress available "here":http://donk.sniz.org/~string/controlapparatus.mp3.
