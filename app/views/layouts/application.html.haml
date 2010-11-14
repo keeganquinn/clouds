@@ -2,8 +2,8 @@
 %html
   %head
     %title= yield(:title) || t(:cloudscontrolus)
-    %meta{:name => 'Description', :content => t(:meta_description)}
-    %meta{:name => 'Keywords', :content => t(:meta_keywords)}
+    %meta{:name => 'Description', :content => 'cloudscontrol.us is a private community of artists, musicians, and other creative professionals who need a place to store and trade assets, share new work, and communicate with others.'}
+    %meta{:name => 'Keywords', :content => 'cloudscontrol.us, clouds control us, clouds, collaboration, file collaboration, art collaboration, art display, music collaboration, music'}
 
     = stylesheet_link_tag 'control'
     = csrf_meta_tag
@@ -15,18 +15,18 @@
 
       #navbar
         %ul
-          %li= link_to t(:home), root_path
+          %li= link_to 'Home', root_path
         %p
           - if user_signed_in?
             = current_user.email
             \|
-            = link_to t(:profile), edit_user_registration_path
+            = link_to 'Profile', edit_user_registration_path
             \|
-            = link_to t(:sign_out), destroy_user_session_path
+            = link_to 'Sign Out', destroy_user_session_path
           - else
-            = link_to t(:register), new_user_registration_path
+            = link_to 'Register', new_user_registration_path
             \|
-            = link_to t(:sign_in), new_user_session_path
+            = link_to 'Sign In', new_user_session_path
 
       - flash.each do |name, msg|
         - if msg.is_a?(String)
