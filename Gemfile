@@ -6,6 +6,7 @@ gem 'capistrano'
 gem 'devise'
 gem 'haml'
 gem 'hpricot'
+gem 'RedCloth'
 gem 'ruby_parser'
 
 group :development, :test do

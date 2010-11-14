@@ -1,0 +1,54 @@
+!!! XML
+!!!
+%html
+  %head
+    %title= yield(:title) || t(:cloudscontrolus)
+    %meta{:name => 'Description', :content => t(:meta_description)}
+    %meta{:name => 'Keywords', :content => t(:meta_keywords)}
+    = stylesheet_link_tag 'control'
+    = csrf_meta_tag
+    = yield(:head)
+
+  %body
+    #container
+      #banr
+      
+      #navbar
+        %ul
+          %li= link_to t(:home), root_path
+        Work in progress.
+        -#
+          - if user_signed_in?
+            = current_user.email
+            \|
+            = link_to t(:profile), edit_user_registration_path
+            \|
+            = link_to t(:sign_out), destroy_user_session_path
+          - else
+            = link_to t(:sign_in), new_user_session_path
+
+      - flash.each do |name, msg|
+        = content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String)
+
+      #content
+        #main
+          #news
+            %h2= t(:new_stuff)
+
+          = yield
+          
+      #foot
+        © 2010 cloudscontrol.us
+
+    = javascript_include_tag :defaults
+    :javascript
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-19148581-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+

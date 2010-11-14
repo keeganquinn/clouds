@@ -18,12 +18,14 @@ h1		{
 	text-align: right;
 	margin-bottom: 2em;
 	margin-top: 1em;
+	text-transform: lowercase;
 		}
 	
 h2		{
     font-family: Verdana, Helvetica, Arial, Sans-serif;
 	font-size: 14px;
 	margin-top: 1em;
+	text-transform: lowercase;
 	}
 
 p		{
@@ -48,11 +50,9 @@ a:visited 	{
 	}
 
 .clear	 	{
-	position: relative;
-	clear: both;
 	}
 	
-.imageDisplay	{
+.image	{
 	position: relative;
 	float: left;
 	margin: 0 1em 2em 1em;
@@ -79,6 +79,8 @@ a:visited 	{
 	background: url("../images/cloudbanr.jpg") top left no-repeat;
 	width: 774px;
 	height: 114px;
+	position: relative;
+	clear: both;
 	}
 
 #navbar		{
@@ -88,6 +90,9 @@ a:visited 	{
 	line-height: 18px;
 	color: silver;
 	text-align: right;
+	position: relative;
+	clear: both;
+	text-transform: lowercase;
 	}
 
 #navbar li	{
@@ -110,13 +115,13 @@ a:visited 	{
 	border-top: 2px solid black;
 	}
 	
-#contentContainer	{
+#content	{
 	background: black;
 	width: 774px;
 	min-height: 600px;
 	}
 	
-#newsboxL	{
+#news	{
 	position: relative;
 	float: right;
 	padding-left: 4px;
@@ -128,7 +133,7 @@ a:visited 	{
 	text-align: right;
 	}
 
-#mainContent	{
+#main	{
 	position: relative;
 	float: left;
 	padding: 4px;
@@ -139,18 +144,6 @@ a:visited 	{
 	text-align: left;
 	}
 
-#fullContent	{
-	position: relative;
-	float: left;
-	padding: 4px;
-	margin: 0 20px 0 20px;
-	width: 728px;
-	min-height: 600px;
-	background: black;
-	color: white;
-	text-align: left;
-	}
-	
 #foot	{
 	width: 774px;
 	height: 24px;
@@ -158,5 +151,7 @@ a:visited 	{
 	background: url("../images/navbg.jpg") top left repeat-x;
 	color: black;
 	text-align: right;
+	position: relative;
+	clear: both;
 	}
 
