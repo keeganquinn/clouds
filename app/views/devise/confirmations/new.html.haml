@@ -1,0 +1,16 @@
+%h1 Resend confirmation instructions
+
+%p Use this form if you recently created an account and have not yet received your confirmation email. Another confirmation email will be sent. Please allow up to 15 minutes for the message to be delivered.
+
+- form_for(resource, :as => resource_name,
+    :url => confirmation_path(resource_name), :html => { :method => :post }) do |f|
+  = devise_error_messages!
+
+  %p
+    %b= f.label :email
+    %br/
+    = f.text_field :email
+
+  %p= f.submit 'Resend confirmation instructions'
+
+= link_to 'Forgot your password?', new_password_path(resource_name)

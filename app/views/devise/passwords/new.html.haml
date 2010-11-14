@@ -1,0 +1,16 @@
+%h1 Forgot your password?
+
+%p Use this form if you have forgotten your password. Provide the email address registered with your account and instructions to reset the password will be sent. Please allow up to 15 minutes for the message to be delivered.
+
+- form_for(resource, :as => resource_name,
+    :url => password_path(resource_name), :html => { :method => :post }) do |f|
+  = devise_error_messages!
+
+  %p
+    %b= f.label :email
+    %br/
+    = f.text_field :email
+
+  %p= f.submit 'Send me reset password instructions'
+
+= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name)

@@ -1,0 +1,22 @@
+%h1 Reset your password
+
+%p Enter a new password here and it will be applied to your account, replacing any password which may have been set previously.
+
+- form_for(resource, :as => resource_name,
+    :url => password_path(resource_name), :html => { :method => :put }) do |f|
+  = devise_error_messages!
+  = f.hidden_field :reset_password_token
+
+  %p
+    %b= f.label :password
+    %br/
+    = f.password_field :password
+
+  %p
+    %b= f.label :password_confirmation
+    %br/
+    = f.password_field :password_confirmation
+
+  %p= f.submit 'Change my password'
+
+= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name)
