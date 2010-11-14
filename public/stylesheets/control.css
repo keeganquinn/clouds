@@ -137,6 +137,12 @@ a:visited {
   padding-right: 4px;
 }
 
+.flash {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 1em;
+}
+
 .image {
   position: relative;
   float: left;

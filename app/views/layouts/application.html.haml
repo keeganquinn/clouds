@@ -4,6 +4,7 @@
     %title= yield(:title) || t(:cloudscontrolus)
     %meta{:name => 'Description', :content => t(:meta_description)}
     %meta{:name => 'Keywords', :content => t(:meta_keywords)}
+
     = stylesheet_link_tag 'control'
     = csrf_meta_tag
     = yield(:head)
@@ -16,8 +17,6 @@
         %ul
           %li= link_to t(:home), root_path
         %p
-          Work in progress.
-        -#
           - if user_signed_in?
             = current_user.email
             \|
@@ -25,14 +24,17 @@
             \|
             = link_to t(:sign_out), destroy_user_session_path
           - else
+            = link_to t(:register), new_user_registration_path
+            \|
             = link_to t(:sign_in), new_user_session_path
 
       - flash.each do |name, msg|
-        = content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String)
+        - if msg.is_a?(String)
+          = content_tag :div, msg, :class => 'flash', :id => "flash_#{name}"
 
       #content
         = yield
-          
+
       #foot
         © 2010 cloudscontrol.us
 
@@ -47,4 +49,3 @@
         ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
-

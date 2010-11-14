@@ -1,9 +1,8 @@
-# Sample localization file for English. Add more files in this directory for other locales.
-# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
-
 en:
   meta_keywords: 'cloudscontrol.us, clouds control us, clouds, collaboration, file collaboration, art collaboration, art display, music collaboration, music'
   meta_description: 'cloudscontrol.us is a private community of artists, musicians, and other creative professionals who need a place to store and trade assets, share new work, and communicate with others.'
+  profile: 'Profile'
+  register: 'Register'
   sign_in: 'Sign In'
   sign_out: 'Sign Out'
   home: 'Home'
