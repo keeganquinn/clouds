@@ -2,14 +2,13 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
   meta_keywords: 'cloudscontrol.us, clouds control us, clouds, collaboration, file collaboration, art collaboration, art display, music collaboration, music'
   meta_description: 'cloudscontrol.us is a private community of artists, musicians, and other creative professionals who need a place to store and trade assets, share new work, and communicate with others.'
   sign_in: 'Sign In'
   sign_out: 'Sign Out'
   home: 'Home'
-  new_stuff: 'New Stuff'
   welcome:
     index:
       title: 'Welcome'
+      new_stuff: 'New Stuff'
       featured_artist: 'Featured Artist'
