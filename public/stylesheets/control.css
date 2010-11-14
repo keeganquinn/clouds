@@ -1,157 +1,144 @@
-/* control.css is the general stylesheet for cloudscontrol.us */
+/* control.css be stylesheet bits for cloudscontrol.us */
 
-*		{
-    margin: 0;
-    padding: 0;
-	}
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Verdana, Helvetica, Arial, sans-serif;
+  font-size: 12px;
+}
 
-body		{
-    background: url("../images/bg.jpg") top left repeat-x;
-    text-align: center;
-    font: 10px Verdana, Helvetica, Arial, Sans-serif;
-    margin: 0 auto;
-    padding : 0;	
- 	}
+body {
+  background: url("../images/bg.jpg") top left repeat-x;
+}
 
-h1		{	
-	font: 18px Verdana, Helvetica, Arial, Sans-serif;
-	text-align: right;
-	margin-bottom: 2em;
-	margin-top: 1em;
-	text-transform: lowercase;
-		}
-	
-h2		{
-    font-family: Verdana, Helvetica, Arial, Sans-serif;
-	font-size: 14px;
-	margin-top: 1em;
-	text-transform: lowercase;
-	}
+h1 {
+  margin-bottom: 1em;
+  margin-top: 1em;
+  text-transform: lowercase;
+  font-size: 18px;
+}
 
-p		{
-	font: 10px Verdana, Helvetica, Arial, Sans-serif;
-	line-height: 16px;
-	color: white;
-	margin-bottom: 1em;
-	text-indent: 1em;
-	}
-	
-a	 	{
-    color: red;
-    text-decoration: none;
-	}
+h2 {
+  margin-bottom: 1em;
+  margin-top: 1em;
+  text-transform: lowercase;
+  font-size: 16px;
+}
 
-a:hover 		{
-    color: #666699;
-	}
+p {
+  margin-bottom: 1em;
+}
 
-a:visited 	{
-    text-decoration: none;
-	}
+a {
+  color: gray;
+  text-decoration: none;
+}
 
-.clear	 	{
-	}
-	
-.image	{
-	position: relative;
-	float: left;
-	margin: 0 1em 2em 1em;
-	}
+a:hover {
+  color: silver;
+  text-decoration: underline;
+}
 
-.centeredstuff	{
-	text-align: center;
-	}
-	
-#container	{
-	margin: 0 auto;
-	margin-top: 1em;
-	margin-bottom: 3em;
-	width: 774px;
-	height: auto;
-	text-align: center;
-	border: 1px solid white;
-	background: black;
-	}
+a:visited {
+  text-decoration: none;
+}
 
-#banr		{ 
-	position: relative;
-	float: left;
-	background: url("../images/cloudbanr.jpg") top left no-repeat;
-	width: 774px;
-	height: 114px;
-	position: relative;
-	clear: both;
-	}
+#container  {
+  margin: 0 auto;
+  margin-top: 1em;
+  width: 774px;
+  border: 1px solid white;
+}
 
-#navbar		{
-	background: black url("../images/navbg.jpg") top left repeat-x;
-	width: 774px;
-	height: 24px;
-	line-height: 18px;
-	color: silver;
-	text-align: right;
-	position: relative;
-	clear: both;
-	text-transform: lowercase;
-	}
+#banr {
+  background: url("../images/cloudbanr.jpg") top left no-repeat;
+  height: 114px;
+}
 
-#navbar li	{
-	display: inline;
-	}
+#navbar {
+  background: black url("../images/navbg.jpg") top left repeat-x;
+  height: 24px;
+  text-transform: lowercase;
+  text-align: right;
+}
 
-#navbar ul li a	{
-	height: 18px;
-	padding-left: 8px;
-	padding-right: 6px;
-	padding-top: 4px;
-	color: black;
-	float: left;
-	border-right: 1px solid black;
-	}
-	
+#navbar li {
+  display: inline;
+}
+
+#navbar ul li a {
+  height: 18px;
+  padding-left: 8px;
+  padding-right: 6px;
+  padding-top: 4px;
+  color: black;
+  float: left;
+  border-right: 1px solid black;
+}
+
 #navbar ul li a:hover {
-	background-color: silver;
-	color: black;
-	border-top: 2px solid black;
-	}
-	
-#content	{
-	background: black;
-	width: 774px;
-	min-height: 600px;
-	}
-	
-#news	{
-	position: relative;
-	float: right;
-	padding-left: 4px;
-	padding-right: 4px;
-	margin: 4px 0 0 4px;
-	width: 212px;
-	height: 300px;
-	background: url("../images/newsbox.jpg") top right no-repeat ;
-	text-align: right;
-	}
+  background-color: silver;
+  color: black;
+  border-top: 2px solid black;
+  text-decoration: none;
+}
 
-#main	{
-	position: relative;
-	float: left;
-	padding: 4px;
-	width: 766px;
-	min-height: 600px;
-	background: black;
-	color: white;
-	text-align: left;
-	}
+#navbar p {
+  color: silver;
+  text-align: right;
+  padding-top: 4px;
+  padding-left: 4px;
+  padding-right: 4px;
+}
 
-#foot	{
-	width: 774px;
-	height: 24px;
-	line-height: 28px;
-	background: url("../images/navbg.jpg") top left repeat-x;
-	color: black;
-	text-align: right;
-	position: relative;
-	clear: both;
-	}
+#content {
+  background: black;
+  color: white;
+  padding: 4px;
+  padding-left: 1em;
+  min-height: 600px;
+}
 
+#news {
+  position: relative;
+  float: right;
+  padding-left: 4px;
+  padding-right: 4px;
+  margin: 4px 4px 0 4px;
+  width: 212px;
+  min-height: 300px;
+  background: url("../images/newsbox.jpg") top right no-repeat;
+}
+
+#news a {
+  color: silver;
+}
+
+#news a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+#news p {
+  margin-left: 8px;
+}
+
+#news h2 {
+  text-align: right;
+}
+
+#foot {
+  height: 24px;
+  line-height: 28px;
+  background: url("../images/navbg.jpg") top left repeat-x;
+  color: black;
+  text-align: right;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+.image {
+  position: relative;
+  float: left;
+  margin: 0 1em 2em 0 ;
+}
