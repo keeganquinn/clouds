@@ -1,14 +1,9 @@
 /* control.css be stylesheet bits for cloudscontrol.us */
 
-* {
-  margin: 0;
-  padding: 0;
-  font-family: Verdana, Helvetica, Arial, sans-serif;
-  font-size: 12px;
-}
-
 body {
   background: url("../images/bg.jpg") top left repeat-x;
+  font-family: Verdana, Helvetica, Arial, sans-serif;
+  font-size: 12px;
 }
 
 h1 {
@@ -68,7 +63,12 @@ img {
   text-align: right;
 }
 
-#navbar li {
+#navbar ul {
+  margin: 0;
+  padding: 0;
+}
+
+#navbar ul li {
   display: inline;
 }
 
@@ -95,6 +95,7 @@ img {
   padding-top: 4px;
   padding-left: 4px;
   padding-right: 4px;
+  margin: 0;
 }
 
 #content {
