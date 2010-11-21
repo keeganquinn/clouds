@@ -11,15 +11,15 @@
 
   %p
     %b= f.label :current_password
-    %i
-      (we need your current password to confirm your changes)
+    %i (we need your current password to confirm your changes)
     %br/
     = f.password_field :current_password
 
+  %h2 Password
+
   %p
     %b= f.label :password
-    %i
-      (leave blank if you don't want to change it)
+    %i (leave blank if you don't want to change it)
     %br/
     = f.password_field :password
 
@@ -27,6 +27,33 @@
     %b= f.label :password_confirmation
     %br/
     = f.password_field :password_confirmation
+
+  %h2 Profile
+
+  %p
+    %b= f.label :login
+    %br/
+    = f.text_field :login
+
+  %p
+    %b= f.label :name
+    %br/
+    = f.text_field :name
+
+  %p
+    %b= f.label :city
+    %br/
+    = f.text_field :city
+
+  %p
+    %b= f.label :country
+    %br/
+    = f.text_field :country
+
+  %p
+    %b= f.label :content
+    %br/
+    = f.text_area :content
 
   %p= f.submit 'Update'
 
