@@ -25,6 +25,8 @@ string:
 
  -functionality/features
   * alright alright alright alright alright alright (keep it rockin.')
-  * devise-based authentication/authorization system; work in progress (-kq)
 
+  * file uploads: text, audio, video
+  * different formats for text: markdown, textile, etc etc,
+    (whatever haml supports)
 
