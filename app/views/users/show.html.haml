@@ -19,8 +19,11 @@
       %b Country:
       = @user.country
 
-%h1 Profile
+- if @user.content.blank?
+  %h1 Profile
 
-- unless @user.content.blank?
+  This user has not yet created any content.
+
+- else
   :textile
     #{@user.content}
