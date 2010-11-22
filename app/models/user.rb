@@ -13,4 +13,8 @@ class User < ActiveRecord::Base
   validates_length_of :name, :maximum => 128
   validates_length_of :city, :maximum => 128
   validates_length_of :country, :maximum => 2
+
+  def to_param
+    login.blank? ? id : login
+  end
 end
