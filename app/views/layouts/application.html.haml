@@ -22,7 +22,10 @@
           %li= link_to 'Users', users_path
         %p
           - if user_signed_in?
-            = current_user.email
+            - unless current_user.username.blank?
+              = link_to current_user.username, url_for(current_user)
+            - else
+              = current_user.email
             \|
             = link_to 'Profile', edit_user_registration_path
             \|
