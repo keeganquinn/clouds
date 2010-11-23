@@ -17,4 +17,8 @@ class User < ActiveRecord::Base
   def to_param
     username.blank? ? id : username
   end
+
+  def self.find_by_param(param)
+    self.find_by_username(param) || self.find(param)
+  end
 end
