@@ -1,7 +1,9 @@
 !!!
 %html
   %head
-    %title= yield(:title) || t(:cloudscontrolus)
+    %title
+      = content_for :title
+      \- cloudscontrol.us
     %meta{:name => 'Description', :content => 'cloudscontrol.us is a private community of artists, musicians, and other creative professionals who need a place to store and trade assets, share new work, and communicate with others.'}
     %meta{:name => 'Keywords', :content => 'cloudscontrol.us, clouds control us, clouds, collaboration, file collaboration, art collaboration, art display, music collaboration, music'}
 
@@ -12,6 +14,7 @@
   %body
     #container
       #banr
+        cloudscontrol.us
 
       #navbar
         %ul
