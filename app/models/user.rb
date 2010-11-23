@@ -4,17 +4,17 @@ class User < ActiveRecord::Base
          :token_authenticatable, :confirmable
 
   attr_accessible :email, :password, :password_confirmation, :remember_me
-  attr_accessible :login, :name, :city, :country, :content
+  attr_accessible :username, :name, :city, :country, :content
 
-  validates_length_of :login, :within => 3..40, :allow_nil => true
-  validates_uniqueness_of :login, :allow_nil => true
-  validates_format_of :login, :with => /\A[A-Za-z0-9]+\Z/, :allow_nil => true
+  validates_length_of :username, :within => 3..40, :allow_nil => true
+  validates_uniqueness_of :username, :allow_nil => true
+  validates_format_of :username, :with => /\A[A-Za-z0-9]+\Z/, :allow_nil => true
 
   validates_length_of :name, :maximum => 128
   validates_length_of :city, :maximum => 128
   validates_length_of :country, :maximum => 2
 
   def to_param
-    login.blank? ? id : login
+    username.blank? ? id : username
   end
 end

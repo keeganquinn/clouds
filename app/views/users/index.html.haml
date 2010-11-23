@@ -4,6 +4,6 @@
 
 %ul
   - @users.each do |user|
-    %li= link_to user.login, url_for(user)
+    %li= link_to user.username, url_for(user)
 
 %p= link_to 'Go back', root_path

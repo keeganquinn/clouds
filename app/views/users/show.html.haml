@@ -1,8 +1,8 @@
 #news
-  - unless @user.login.blank?
+  - unless @user.username.blank?
     %p
-      %b Login:
-      = @user.login
+      %b Username:
+      = @user.username
 
   - unless @user.name.blank?
     %p
