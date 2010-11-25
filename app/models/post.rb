@@ -11,7 +11,8 @@ class Post < ActiveRecord::Base
   validates_uniqueness_of :code
   validates_format_of :code, :with => /\A[A-Za-z0-9]+\Z/
 
-  validates_length_of :subject, :maximum => 255
+  validates_length_of :subject, :within => 3..255
+  validates_presence_of :body
 
   def to_param
     code.blank? ? id : code
