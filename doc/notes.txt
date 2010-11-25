@@ -9,8 +9,7 @@ string:
  -profile page
 
 keegan:
- -update important stuff.
- 
+ - text, images, audio, video, binary attachments to posts 
 
 [] not quite as important notes []
 
@@ -24,9 +23,7 @@ string:
 [] brainstorming area []
 
  -functionality/features
-  * alright alright alright alright alright alright (keep it rockin.')
 
-  * file uploads: text, audio, video
   * different formats for text: markdown, textile, etc etc,
     (whatever haml supports)
 
