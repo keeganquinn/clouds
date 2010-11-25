@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   # GET /posts.xml
   def index
     @user = User.find_by_param(params[:user_id])
-    @posts = @user.posts
+    @posts = @user.posts.all(:conditions => "in_reply_to_post_id IS NULL")
 
     respond_to do |format|
       format.html # index.html.haml
