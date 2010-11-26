@@ -10,6 +10,7 @@ string:
 
 keegan:
  - text, images, audio, video, binary attachments to posts 
+ - friends
 
 [] not quite as important notes []
 
