@@ -21,10 +21,8 @@
       %b Country:
       = @user.country
 
-  - unless @user.posts.empty?
-    %p
-      = link_to 'Posts', user_posts_path(@user)
-      (#{@user.posts.count} total)
+  %p
+    = link_to 'Posts', user_posts_path(@user)
 
 - if @user.content.blank?
   %h1 Profile
