@@ -18,7 +18,7 @@
       = link_to @post.in_reply_to_post.user.to_param,
         user_path(@post.in_reply_to_post.user)
 
-  - if current_user.id == @user.id
+  - if user_signed_in? and current_user.id == @user.id
     %p
       = link_to 'Edit post', edit_user_post_path(@user, @post)
       &dash;

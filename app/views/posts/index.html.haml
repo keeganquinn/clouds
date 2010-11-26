@@ -32,5 +32,5 @@
   - @posts.each do |post|
     %li= link_to post.subject, user_post_path(@user, post)
 
-- if current_user.id == @user.id
+- if user_signed_in? and current_user.id == @user.id
   %p= link_to 'New post', new_user_post_path(@user)
