@@ -1,28 +1,9 @@
 - content_for :title, @user.to_param
 
 #news
-  - unless @user.username.blank?
-    %p
-      %b Username:
-      = @user.username
+  = render :partial => 'users/info'
 
-  - unless @user.name.blank?
-    %p
-      %b Name:
-      = @user.name
-
-  - unless @user.city.blank?
-    %p
-      %b City:
-      = @user.city
-
-  - unless @user.country.blank?
-    %p
-      %b Country:
-      = @user.country
-
-  %p
-    = link_to 'Posts', user_posts_path(@user)
+  %p= link_to 'Posts', user_posts_path(@user)
 
 - if @user.content.blank?
   %h1 Profile

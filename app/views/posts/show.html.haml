@@ -7,7 +7,7 @@
 
   %p
     %b From:
-    = link_to @user.to_param, url_for(@user)
+    = link_to @user.to_param, user_path(@user)
 
   - unless @post.in_reply_to_post.nil?
     %p

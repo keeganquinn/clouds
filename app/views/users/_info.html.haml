@@ -1,0 +1,21 @@
+- unless @user.username.blank?
+  %p
+    %b Username:
+    = @user.username
+
+- unless @user.name.blank?
+  %p
+    %b Name:
+    = @user.name
+
+- unless @user.city.blank?
+  %p
+    %b City:
+    = @user.city
+
+- unless @user.country.blank?
+  %p
+    %b Country:
+    = @user.country
+
+%p Member since #{time_ago_in_words(@user.created_at)} ago

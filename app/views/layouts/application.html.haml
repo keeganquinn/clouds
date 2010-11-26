@@ -23,7 +23,7 @@
         %p
           - if user_signed_in?
             - unless current_user.username.blank?
-              = link_to current_user.username, url_for(current_user)
+              = link_to current_user.to_param, user_path(current_user)
             - else
               = current_user.email
             \|
