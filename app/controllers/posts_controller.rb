@@ -33,6 +33,11 @@ class PostsController < ApplicationController
 
     @post = @user.posts.new
 
+    unless params[:in_reply_to_post_id].blank?
+      @post.in_reply_to_post = Post.find(params[:in_reply_to_post_id])
+      @post.subject ||= "Re: #{@post.in_reply_to_post.subject}"
+    end
+
     respond_to do |format|
       format.html # new.html.haml
       format.xml  { render :xml => @post }
@@ -61,7 +66,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to(@post, :notice => 'Post was successfully created.') }
+        format.html { redirect_to(user_post_path(@user, @post), :notice => 'Post was successfully created.') }
         format.xml  { render :xml => @post, :status => :created, :location => @post }
       else
         format.html { render :action => "new" }
@@ -82,7 +87,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.update_attributes(params[:post])
-        format.html { redirect_to(@post, :notice => 'Post was successfully updated.') }
+        format.html { redirect_to(user_post_path(@user, @post), :notice => 'Post was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -103,7 +108,7 @@ class PostsController < ApplicationController
     @post.destroy
 
     respond_to do |format|
-      format.html { redirect_to(posts_url) }
+      format.html { redirect_to(user_posts_url(@user)) }
       format.xml  { head :ok }
     end
   end
