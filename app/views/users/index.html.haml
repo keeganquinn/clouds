@@ -6,8 +6,15 @@
 
 %p All users with public profiles are listed here.
 
+- if user_signed_in?
+  %p= link_to 'Edit your profile', edit_user_registration_path
+- else
+  %p
+    = link_to 'Log in', new_user_session_path
+    or
+    = link_to 'create an account', new_user_registration_path
+    to create your own profile.
+
 %ul
   - @users.each do |user|
     %li= link_to user.username, user_path(user)
-
-%p= link_to 'Go back', root_path
