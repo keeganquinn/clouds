@@ -2,8 +2,12 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.xml
   def index
-    @user = User.find_by_param(params[:user_id])
-    @posts = @user.posts.all(:conditions => "in_reply_to_post_id IS NULL")
+    unless params[:user_id].blank?
+      @user = User.find_by_param(params[:user_id])
+      @posts = @user.posts.all(:conditions => "in_reply_to_post_id IS NULL")
+    else
+      @posts = Post.all(:conditions => "in_reply_to_post_id IS NULL")
+    end
 
     respond_to do |format|
       format.html # index.html.haml

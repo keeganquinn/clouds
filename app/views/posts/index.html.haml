@@ -1,18 +1,26 @@
-- content_for :title, "Posts by #{@user.to_param}"
+- content_for :title, "Posts by #{@user ? @user.to_param : 'all users'}"
 
 #news
-  = render :partial => 'users/info'
-
-  %p= link_to 'Profile', user_path(@user)
+  - if @user
+    = render :partial => 'users/info'
+    %p= link_to 'Profile', user_path(@user)
+  - else
+    = render :partial => 'welcome/box'
 
 %h1 Posts
 
+- if user_signed_in?
+  %p= link_to 'New post', new_user_post_path(current_user)
+- else
+  %p
+    = link_to 'Log in', new_user_session_path
+    or
+    = link_to 'create an account', new_user_registration_path
+    to create a new post.
+
 - if @posts.empty?
-  This user has not yet posted anything.
+  No posts to display.
 
 %ul
   - @posts.each do |post|
-    %li= link_to post.subject, user_post_path(@user, post)
-
-- if user_signed_in? and current_user.id == @user.id
-  %p= link_to 'New post', new_user_post_path(@user)
+    %li= link_to post.subject, user_post_path(post.user, post)

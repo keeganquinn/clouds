@@ -19,7 +19,9 @@
       #navbar
         %ul
           %li= link_to 'Home', root_path
+          %li= link_to 'Posts', posts_path
           %li= link_to 'Users', users_path
+
         %p
           - if user_signed_in?
             - unless current_user.username.blank?
