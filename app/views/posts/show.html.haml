@@ -39,6 +39,12 @@
 
   - if user_signed_in?
     %p= link_to 'New reply', new_user_post_path(current_user, :in_reply_to_post_id => @post.id)
+  - else
+    %p
+      = link_to 'Log in', new_user_session_path
+      or
+      = link_to 'create an account', new_user_registration_path
+      to reply to this post.
 
 :textile
   #{@post.body}
