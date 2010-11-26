@@ -1,0 +1,40 @@
+- content_for :title, 'Create a post'
+%h1= content_for :title
+
+= form_for(@post, :url => user_posts_path(@user)) do |f|
+  - if @post.errors.any?
+    #error_explanation
+      %h2
+        #{pluralize(@post.errors.count, 'error')}
+        prohibited this post from being saved:
+      %ul
+        - @post.errors.full_messages.each do |msg|
+          %li= msg
+
+  - unless @post.in_reply_to_post.blank?
+    %p
+      %b In reply to:
+      %br/
+      = link_to @post.in_reply_to_post.subject,
+        user_post_path(@post.in_reply_to_post.user, @post.in_reply_to_post)
+      from
+      = link_to @post.in_reply_to_post.user.to_param,
+        user_path(@post.in_reply_to_post.user)
+      = f.hidden_field :in_reply_to_post_id
+
+  %p
+    %b= f.label :code
+    %br/
+    = f.text_field :code
+
+  %p
+    %b= f.label :subject
+    %br/
+    = f.text_field :subject
+
+  %p
+    %b= f.label :body
+    %br/
+    = f.text_area :body
+
+  %p= f.submit 'Create'

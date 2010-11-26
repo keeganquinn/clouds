@@ -1,0 +1,42 @@
+- content_for :title, @post.subject
+
+#news
+  %p
+    %b Subject:
+    = @post.subject
+
+  %p
+    %b From:
+    = link_to @user.to_param, url_for(@user)
+
+  - unless @post.in_reply_to_post.nil?
+    %p
+      %b In reply to:
+      = link_to @post.in_reply_to_post.subject,
+        user_post_path(@post.in_reply_to_post.user, @post.in_reply_to_post)
+      from
+      = link_to @post.in_reply_to_post.user.to_param,
+        user_path(@post.in_reply_to_post.user)
+
+  - if current_user.id == @user.id
+    %p
+      = link_to 'Edit post', edit_user_post_path(@user, @post)
+      &dash;
+      = link_to 'Delete post', user_post_path(@user, @post), :method => :delete,
+        :confirm => "Are you sure you wish to delete this post?"
+
+  - unless @post.replies.empty?
+    %p
+      %b Replies:
+      %ul
+        - @post.replies.each do |reply|
+          %li
+            = link_to reply.subject, user_post_path(reply.user, reply)
+            from
+            = link_to reply.user.to_param, user_path(reply.user)
+
+  - if user_signed_in?
+    %p= link_to 'New reply', new_user_post_path(current_user, :in_reply_to_post_id => @post.id)
+
+:textile
+  #{@post.body}

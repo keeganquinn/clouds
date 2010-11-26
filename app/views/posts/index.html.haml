@@ -1,0 +1,36 @@
+- content_for :title, "Posts by #{@user.to_param}"
+
+#news
+  - unless @user.username.blank?
+    %p
+      %b Username:
+      = @user.username
+
+  - unless @user.name.blank?
+    %p
+      %b Name:
+      = @user.name
+
+  - unless @user.city.blank?
+    %p
+      %b City:
+      = @user.city
+
+  - unless @user.country.blank?
+    %p
+      %b Country:
+      = @user.country
+
+  %p= link_to 'Profile', url_for(@user)
+
+%h1 Posts
+
+- if @posts.empty?
+  This user has not yet posted anything.
+
+%ul
+  - @posts.each do |post|
+    %li= link_to post.subject, user_post_path(@user, post)
+
+- if current_user.id == @user.id
+  %p= link_to 'New post', new_user_post_path(@user)

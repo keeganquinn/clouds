@@ -1,4 +1,4 @@
-- content_for :title, @user.username
+- content_for :title, @user.to_param
 
 #news
   - unless @user.username.blank?
@@ -20,6 +20,11 @@
     %p
       %b Country:
       = @user.country
+
+  - unless @user.posts.empty?
+    %p
+      = link_to 'Posts', user_posts_path(@user)
+      (#{@user.posts.count} total)
 
 - if @user.content.blank?
   %h1 Profile
