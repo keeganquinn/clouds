@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
   validates_length_of :country, :maximum => 2
 
   def to_param
-    username.blank? ? id : username
+    "#{username.blank? ? id : username}"
   end
 
   def self.find_by_param(param)
