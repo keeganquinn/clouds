@@ -19,11 +19,11 @@ class Post < ActiveRecord::Base
   end
 
   def to_param
-    code.blank? ? id : code
+    code
   end
 
   def self.find_by_param(param)
-    self.find_by_code(param) || self.find(param)
+    self.find_by_code(param)
   end
 
   before_validation :set_defaults, :on => :create
