@@ -14,11 +14,21 @@ class Post < ActiveRecord::Base
   validates_length_of :subject, :within => 3..255
   validates_presence_of :body
 
+  def stripped_subject
+    self.subject.gsub(/<[^>]*>/,'').to_url
+  end
+
   def to_param
     code.blank? ? id : code
   end
 
   def self.find_by_param(param)
     self.find_by_code(param) || self.find(param)
+  end
+
+  before_validation :set_defaults, :on => :create
+
+  def set_defaults
+    self.code = self.stripped_subject if self.code.blank?
   end
 end
