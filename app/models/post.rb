@@ -15,7 +15,7 @@ class Post < ActiveRecord::Base
   validates_presence_of :body
 
   def stripped_subject
-    self.subject.gsub(/<[^>]*>/,'').to_url
+    self.subject ? self.subject.gsub(/<[^>]*>/,'').to_url : ''
   end
 
   def to_param
