@@ -2,16 +2,12 @@ require 'spec_helper'
 
 describe "posts/edit.html.haml" do
   before(:each) do
-    @post = assign(:post, stub_model(Post,
-      :new_record? => false
-    ))
+    assign :post, @post = stub_model(Post, :new_record? => false, :code => 'test', :user => stub_model(User))
   end
 
   it "renders the edit post form" do
     render
 
-    # Run the generator again with the --webrat-matchers flag if you want to use webrat matchers
-    assert_select "form", :action => post_path(@post), :method => "post" do
-    end
+    assert_select "form", :action => user_post_path(@post.user, @post), :method => "post" do end
   end
 end

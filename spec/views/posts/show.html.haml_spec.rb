@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "posts/show.html.haml" do
   before(:each) do
-    @post = assign(:post, stub_model(Post))
+    assign :post, stub_model(Post, :created_at => Time.now, :user => stub_model(User))
   end
 
   it "renders attributes in <p>" do
