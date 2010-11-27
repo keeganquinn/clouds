@@ -1,7 +1,7 @@
 %li
   = link_to post.subject, user_post_path(post.user, post)
-  - unless @user
-    from
+  - unless @user == post.user
+    by
     = link_to post.user.to_param, user_path(post.user)
   #{time_ago_in_words(post.created_at)} ago
   - unless post.replies.empty?
