@@ -1,7 +1,7 @@
 - content_for :title, 'Edit post'
 %h1= content_for :title
 
-= form_for(@post, :url => user_post_path(@user, @post)) do |f|
+= form_for(@post, :url => user_post_path(@post.user, @post)) do |f|
   - if @post.errors.any?
     #error_explanation
       %h2
