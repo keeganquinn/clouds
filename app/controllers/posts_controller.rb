@@ -20,8 +20,8 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.xml
   def show
-    @user = User.find_by_param(params[:user_id])
-    @post = @user.posts.find_by_param(params[:id])
+    user = User.find_by_param(params[:user_id])
+    @post = user.posts.find_by_param(params[:id])
 
     respond_to do |format|
       format.html # show.html.haml

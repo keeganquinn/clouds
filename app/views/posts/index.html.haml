@@ -10,7 +10,7 @@
 %h1 Posts
 
 - if user_signed_in?
-  %p= link_to 'New post', new_user_post_path(current_user)
+  %p= link_to 'New post', new_post_path
 - else
   %p
     = link_to 'Log in', new_user_session_path

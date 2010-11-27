@@ -1,7 +1,7 @@
 - content_for :title, 'Create a post'
 %h1= content_for :title
 
-= form_for(@post, :url => user_posts_path(@user)) do |f|
+= form_for(@post, :url => posts_path) do |f|
   - if @post.errors.any?
     #error_explanation
       %h2

@@ -11,7 +11,7 @@ describe PostsController do
     end
 
     it "recognizes and generates #new" do
-      { :get => "/users/someone/posts/new" }.should route_to(:controller => "posts", :action => "new", :user_id => "someone")
+      { :get => "/posts/new" }.should route_to(:controller => "posts", :action => "new")
     end
 
     it "recognizes and generates #show" do
@@ -23,7 +23,7 @@ describe PostsController do
     end
 
     it "recognizes and generates #create" do
-      { :post => "/users/someone/posts" }.should route_to(:controller => "posts", :action => "create", :user_id => "someone")
+      { :post => "/posts" }.should route_to(:controller => "posts", :action => "create")
     end
 
     it "recognizes and generates #update" do
