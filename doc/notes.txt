@@ -1,30 +1,21 @@
-notes.txt
-
-[] important notes for cloudscontrol.us []
-
 string:
- -get new working homepage ready 
-  *incorporate login/pass area
-  *better organization for current featured artists, room for at least 2-3 featured?
- -profile page
+
+ - icon!
+
+ - get new working homepage ready 
+   * incorporate login/pass area - what goes there after login?
+   * better organization for featured artists, room for at least 2-3 featured?
+
+ - forms?
+
 
 keegan:
- - text, images, audio, video, binary attachments to posts 
+
+ - categories for posts?
+
  - friends
 
-[] not quite as important notes []
+ - text, images, audio, video, binary attachments to posts 
 
-string: 
- -learn html 5 and how to incorporate new organization methods 
- -clean up design, css3
-
-
-
-
-[] brainstorming area []
-
- -functionality/features
-
-  * different formats for text: markdown, textile, etc etc,
-    (whatever haml supports)
+ - different formats for text: markdown, textile, etc etc,
 
