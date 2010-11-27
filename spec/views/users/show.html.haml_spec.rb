@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "users/show.html.haml" do
   before(:each) do
-    @user = assign(:user, stub_model(User))
+    assign :user, stub_model(User, :created_at => Time.now)
   end
 
   it "renders attributes in <p>" do
