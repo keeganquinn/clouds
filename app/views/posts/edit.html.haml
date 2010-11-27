@@ -33,9 +33,8 @@
     %br/
     = f.text_field :subject
 
-  %p
-    %b= f.label :body
-    %br/
-    = f.text_area :body
+  %p Posts are in #{link_to "Textile", "http://textile.thresholdstate.com"} format; include anything you want!
+
+  %p= f.text_area :body, :cols => 76, :rows => 20
 
   %p= f.submit 'Update'
