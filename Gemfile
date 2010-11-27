@@ -8,6 +8,7 @@ gem 'haml'
 gem 'hpricot'
 gem 'RedCloth'
 gem 'ruby_parser'
+gem 'will_paginate', '>=3.0.pre2'
 
 group :development, :test do
   gem 'autotest-rails'

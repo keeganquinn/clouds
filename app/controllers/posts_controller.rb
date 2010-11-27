@@ -6,9 +6,9 @@ class PostsController < ApplicationController
   def index
     unless params[:user_id].blank?
       @user = User.find_by_param(params[:user_id])
-      @posts = @user.posts.all(:conditions => "in_reply_to_post_id IS NULL")
+      @posts = @user.posts.top.paginate(:page => params[:page])
     else
-      @posts = Post.all(:conditions => "in_reply_to_post_id IS NULL")
+      @posts = Post.top.paginate(:page => params[:page])
     end
 
     respond_to do |format|

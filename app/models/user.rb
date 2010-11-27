@@ -5,6 +5,12 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :token_authenticatable, :confirmable
 
+  cattr_reader :per_page
+  @@per_page = 20
+
+  default_scope :order => 'username ASC'
+  scope :with_profile, where('username IS NOT NULL')
+
   attr_accessible :email, :password, :password_confirmation, :remember_me
   attr_accessible :username, :name, :location, :content
 

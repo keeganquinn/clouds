@@ -5,6 +5,12 @@ class Post < ActiveRecord::Base
   has_many :replies, :class_name => "Post",
     :foreign_key => "in_reply_to_post_id"
 
+  cattr_reader :per_page
+  @@per_page = 20
+
+  default_scope :order => 'created_at DESC'
+  scope :top, where(:in_reply_to_post_id => nil)
+
   attr_accessible :in_reply_to_post_id, :code, :subject, :body, :published
 
   validates_length_of :code, :within => 3..255

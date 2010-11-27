@@ -18,3 +18,5 @@
 %ul
   - @posts.each do |post|
     = render :partial => 'item', :locals => { :post => post }
+
+%p= will_paginate @posts
