@@ -14,7 +14,7 @@
 
   %p
     %b= f.label :current_password
-    %i (we need your current password to confirm your changes)
+    %i (We need your current password to confirm your changes!)
     %br/
     = f.password_field :current_password
 
@@ -22,7 +22,7 @@
 
   %p
     %b= f.label :password
-    %i (leave blank if you don't want to change it)
+    %i (Leave blank if you don't want to change it.)
     %br/
     = f.password_field :password
 
@@ -33,8 +33,11 @@
 
   %h2 Profile
 
+  %p All profile fields are optional; all profile data is public. If you provide a username, your profile will be listed in the directory - we very much recommend this!
+
   %p
     %b= f.label :username
+    %i (No spaces. This is the name people will see on your posts.)
     %br/
     = f.text_field :username
 
@@ -44,19 +47,15 @@
     = f.text_field :name
 
   %p
-    %b= f.label :city
+    %b= f.label :location
     %br/
-    = f.text_field :city
+    = f.text_field :location
 
-  %p
-    %b= f.label :country
-    %br/
-    = f.text_field :country
+  %h2 Content
 
-  %p
-    %b= f.label :content
-    %br/
-    = f.text_area :content
+  %p Your profile content is what people will find when they visit your page. This can be anything you want, in #{link_to "Textile", "http://textile.thresholdstate.com"} format.
+
+  %p= f.text_area :content, :cols => 76, :rows => 20
 
   %p= f.submit 'Update'
 

@@ -51,17 +51,10 @@ describe User do
     @user.should_not be_valid
   end
 
-  it 'should be invalid if city is too long' do
+  it 'should be invalid if location is too long' do
     @user.should be_valid
 
-    @user.city = '0123456789' * 13
-    @user.should_not be_valid
-  end
-
-  it 'should be invalid if country is too long' do
-    @user.should be_valid
-
-    @user.country = 'ABC'
+    @user.location = '0123456789' * 13
     @user.should_not be_valid
   end
 end
