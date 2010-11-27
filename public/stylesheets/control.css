@@ -107,7 +107,7 @@ img {
   min-height: 600px;
 }
 
-#news {
+#box {
   position: relative;
   float: right;
   padding-left: 4px;
@@ -118,20 +118,20 @@ img {
   background: url("../images/newsbox.jpg") top right no-repeat;
 }
 
-#news a {
+#box a {
   color: silver;
 }
 
-#news a:hover {
+#box a:hover {
   color: white;
   text-decoration: underline;
 }
 
-#news p {
+#box p {
   margin-left: 8px;
 }
 
-#news h2 {
+#box h2 {
   text-align: right;
 }
 

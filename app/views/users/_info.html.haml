@@ -19,3 +19,8 @@
     = @user.country
 
 %p Member since #{time_ago_in_words(@user.created_at)} ago
+
+%p
+  = link_to_unless_current 'Profile', user_path(@user)
+  &dash;
+  = link_to_unless_current 'Posts', user_posts_path(@user)

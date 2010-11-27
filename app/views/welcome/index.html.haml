@@ -1,7 +1,6 @@
-#news
-  = render :partial => 'welcome/box'
-
 - content_for :title, 'Welcome'
+- content_for :box, render(:partial => 'box')
+
 %h1= content_for :title
 
 :textile

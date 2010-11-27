@@ -1,9 +1,5 @@
 - content_for :title, @user.to_param
-
-#news
-  = render :partial => 'users/info'
-
-  %p= link_to 'Posts', user_posts_path(@user)
+- content_for :box, render(:partial => 'info')
 
 - if @user.content.blank?
   %h1 Profile

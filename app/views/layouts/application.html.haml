@@ -42,6 +42,9 @@
           = content_tag :div, msg, :class => 'flash', :id => "flash_#{name}"
 
       #content
+        - unless content_for(:box).empty?
+          #box= content_for :box
+
         = yield
 
       #foot

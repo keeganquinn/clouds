@@ -1,13 +1,7 @@
 - content_for :title, "Posts by #{@user ? @user.to_param : 'all users'}"
+- content_for :box, render(:partial => @user ? 'users/info' : 'welcome/box')
 
-#news
-  - if @user
-    = render :partial => 'users/info'
-    %p= link_to 'Profile', user_path(@user)
-  - else
-    = render :partial => 'welcome/box'
-
-%h1 Posts
+%h1= content_for :title
 
 - if user_signed_in?
   %p= link_to 'New post', new_post_path

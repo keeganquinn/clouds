@@ -1,7 +1,6 @@
-#news
-  = render :partial => 'welcome/box'
-
 - content_for :title, 'Users'
+- content_for :box, render(:partial => 'welcome/box')
+
 %h1= content_for :title
 
 %p All users with public profiles are listed here.
