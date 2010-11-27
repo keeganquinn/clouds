@@ -1,4 +1,6 @@
 - content_for :title, 'Edit post'
+- content_for :box, render(:partial => 'users/help')
+
 %h1= content_for :title
 
 = form_for(@post, :url => user_post_path(@post.user, @post)) do |f|
