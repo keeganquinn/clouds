@@ -9,6 +9,7 @@ describe PostsController do
 
   def mock_user(stubs = {})
     (@mock_user ||= mock_model(User).as_null_object).tap do |user|
+      user.stub(:to_hash => {:id => 1}, :to_int => 1)
       user.stub(stubs) unless stubs.empty?
     end
   end
