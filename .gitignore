@@ -8,3 +8,4 @@ doc/api
 doc/app
 log/*.log
 tmp/**/*
+.sass-cache/
