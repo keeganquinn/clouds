@@ -44,3 +44,5 @@ module Clouds
     end
   end
 end
+
+WillPaginate.per_page = 20
