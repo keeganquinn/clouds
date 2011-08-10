@@ -16,7 +16,7 @@ describe PostsController do
 
   describe "GET index" do
     it "assigns all posts as @posts" do
-      Post.stub_chain(:top).and_return([mock_post])
+      Post.stub_chain(:top, :paginate).and_return([mock_post])
 
       get :index
       assigns(:posts).should eq([mock_post])
