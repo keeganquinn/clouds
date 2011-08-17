@@ -6,7 +6,7 @@ class Post < ActiveRecord::Base
     :foreign_key => "in_reply_to_post_id"
 
   default_scope :order => 'created_at DESC'
-  scope :top, where(:in_reply_to_post_id => nil)
+  scope :top, where('in_reply_to_post_id IS NULL')
 
   attr_accessible :in_reply_to_post_id, :code, :subject, :body, :published
 
