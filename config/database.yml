@@ -1,14 +1,10 @@
 development:
   adapter: mysql2
-  database: 'clouds-dev'
-  username: 'clouds'
-  password: 'cL0wDz.'
+  database: clouds_dev
 
 test:
   adapter: mysql2
-  database: 'clouds-test'
-  username: 'clouds'
-  password: 'cL0wDz.'
+  database: clouds_test
 
 production:
   adapter: mysql2
