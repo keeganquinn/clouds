@@ -7,7 +7,7 @@
     %meta{:name => 'Description', :content => 'cloudscontrol.us is a private community of artists, musicians, and other creative professionals who need a place to store and trade assets, share new work, and communicate with others.'}
     %meta{:name => 'Keywords', :content => 'cloudscontrol.us, clouds control us, clouds, collaboration, file collaboration, art collaboration, art display, music collaboration, music'}
 
-    = stylesheet_link_tag 'control'
+    = stylesheet_link_tag 'application'
     = csrf_meta_tag
     = yield(:head)
 
@@ -50,7 +50,7 @@
       #foot
         © 2011 cloudscontrol.us
 
-    = javascript_include_tag :defaults
+    = javascript_include_tag 'application'
     :javascript
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-19148581-1']);
