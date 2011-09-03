@@ -13,4 +13,5 @@ gem 'will_paginate'
 group :development, :test do
   gem 'autotest-rails'
   gem 'rspec-rails'
+  gem 'simplecov', :require => false
 end
