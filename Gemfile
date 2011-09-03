@@ -10,6 +10,12 @@ gem 'mysql2'
 gem 'RedCloth'
 gem 'will_paginate'
 
+group :assets do
+  gem 'coffee-rails'
+  gem 'sass-rails'
+  gem 'uglifier'
+end
+
 group :development, :test do
   gem 'autotest-rails'
   gem 'rspec-rails'
