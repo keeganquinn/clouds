@@ -14,6 +14,7 @@ class PostsController < ApplicationController
     respond_to do |format|
       format.html # index.html.haml
       format.xml  { render :xml => @posts }
+      format.json { render :json => @posts }
     end
   end
 
@@ -26,6 +27,7 @@ class PostsController < ApplicationController
     respond_to do |format|
       format.html # show.html.haml
       format.xml  { render :xml => @post }
+      format.json { render :json => @post }
     end
   end
 
@@ -42,6 +44,7 @@ class PostsController < ApplicationController
     respond_to do |format|
       format.html # new.html.haml
       format.xml  { render :xml => @post }
+      format.json { render :json => @post }
     end
   end
 
@@ -64,10 +67,16 @@ class PostsController < ApplicationController
         format.xml  {
           render :xml => @post, :status => :created, :location => @post
         }
+        format.json {
+          render :json => @post, :status => :created, :location => @post
+        }
       else
         format.html { render :action => "new" }
         format.xml  {
           render :xml => @post.errors, :status => :unprocessable_entity
+        }
+        format.json {
+          render :json => @post.errors, :status => :unprocessable_entity
         }
       end
     end
@@ -85,10 +94,14 @@ class PostsController < ApplicationController
                       :notice => 'Post was successfully updated.')
         }
         format.xml  { head :ok }
+        format.json { head :ok }
       else
         format.html { render :action => "edit" }
         format.xml  {
           render :xml => @post.errors, :status => :unprocessable_entity
+        }
+        format.json {
+          render :json => @post.errors, :status => :unprocessable_entity
         }
       end
     end
@@ -103,6 +116,7 @@ class PostsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(user_posts_path(current_user)) }
       format.xml  { head :ok }
+      format.json { head :ok }
     end
   end
 end
