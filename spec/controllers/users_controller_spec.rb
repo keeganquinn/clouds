@@ -20,14 +20,14 @@ describe UsersController do
       response.should render_template("index")
     end
 
-    it 'renders XML when the xml format is requested' do
-      get :index, :format => :xml
-      response.content_type.should eq("application/xml")
-    end
-
     it 'renders JSON when the json format is requested' do
       get :index, :format => :json
       response.content_type.should eq("application/json")
+    end
+
+    it 'renders XML when the xml format is requested' do
+      get :index, :format => :xml
+      response.content_type.should eq("application/xml")
     end
   end
 
@@ -44,14 +44,14 @@ describe UsersController do
       response.should render_template("index")
     end
 
-    it 'renders XML when the xml format is requested' do
-      get :index, :format => :xml
-      response.content_type.should eq("application/xml")
-    end
-
     it 'renders JSON when the json format is requested' do
       get :index, :format => :json
       response.content_type.should eq("application/json")
+    end
+
+    it 'renders XML when the xml format is requested' do
+      get :index, :format => :xml
+      response.content_type.should eq("application/xml")
     end
   end
 end
