@@ -14,6 +14,21 @@ describe UsersController do
       get :index
       assigns(:users).should eq([mock_user])
     end
+
+    it 'renders HTML when the html format is requested' do
+      get :index, :format => :html
+      response.should render_template("index")
+    end
+
+    it 'renders XML when the xml format is requested' do
+      get :index, :format => :xml
+      response.content_type.should eq("application/xml")
+    end
+
+    it 'renders JSON when the json format is requested' do
+      get :index, :format => :json
+      response.content_type.should eq("application/json")
+    end
   end
 
   describe "GET show" do
@@ -22,6 +37,21 @@ describe UsersController do
 
       get :show, :id => "37"
       assigns(:user).should be(mock_user)
+    end
+
+    it 'renders HTML when the html format is requested' do
+      get :index, :format => :html
+      response.should render_template("index")
+    end
+
+    it 'renders XML when the xml format is requested' do
+      get :index, :format => :xml
+      response.content_type.should eq("application/xml")
+    end
+
+    it 'renders JSON when the json format is requested' do
+      get :index, :format => :json
+      response.content_type.should eq("application/json")
     end
   end
 end
