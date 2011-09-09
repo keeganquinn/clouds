@@ -1,11 +1,11 @@
 require 'spec_helper'
 
 describe "posts/show.html.haml" do
-  before(:each) do
-    assign :post, stub_model(Post, :created_at => Time.now, :user => stub_model(User))
-  end
+  it "renders a post" do
+    assign :post, stub_model(Post, :subject => "Test", :body => "Just a test.", :created_at => Time.now, :user => stub_model(User))
 
-  it "renders attributes in <p>" do
     render
+
+    rendered.should =~ /Just a test/
   end
 end

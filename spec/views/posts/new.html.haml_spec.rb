@@ -1,13 +1,13 @@
 require 'spec_helper'
 
 describe "posts/new.html.haml" do
-  before(:each) do
+  it "renders the new post form" do
     assign :post, stub_model(Post).as_new_record
-  end
 
-  it "renders new post form" do
     render
 
-    assert_select "form", :action => posts_path, :method => "post" do end
+    assert_select "form", :action => posts_path, :method => "post" do
+      assert_select "input", :name => "commit", :type => "submit", :value => "Create"
+    end
   end
 end
