@@ -55,6 +55,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.new(params[:post])
 
     if @post.save
+      flash[:notice] = t(:create_success, :thing => Post.model_name.human)
       respond_with(@post, :status => :created, :location => user_post_path(current_user, @post))
     else
       respond_with(@post, :status => :unprocessable_entity, :location => posts_path) do |format|
@@ -70,6 +71,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.find_by_param(params[:id])
 
     if @post.update_attributes(params[:post])
+      flash[:notice] = t(:update_success, :thing => Post.model_name.human)
       respond_with(@post, :head => :ok, :location => user_post_path(current_user, @post))
     else
       respond_with(@post, :status => :unprocessable_entity) do |format|
@@ -89,6 +91,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.find_by_param(params[:id])
     @post.destroy
 
+    flash[:notice] = t(:delete_success, :thing => Post.model_name.human)
     respond_with(current_user, :head => :ok, :location => user_posts_path(current_user))
   end
 end

@@ -1,2 +1,16 @@
 en:
-  hello: 'Hello World'
+  create_success: '%{thing} created successfully.'
+  update_success: '%{thing} updated successfully.'
+  delete_success: '%{thing} deleted successfully.'
+  activerecord:
+    models:
+      post: 'Post'
+      user: 'User'
+    attributes:
+      post:
+        code: 'Code'
+        subject: 'Subject'
+      user:
+        username: 'Username'
+        name: 'Name'
+        location: 'Location'
