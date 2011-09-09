@@ -1,11 +1,11 @@
 require 'spec_helper'
 
 describe "users/show.html.haml" do
-  before(:each) do
+  it "renders a user profile" do
     assign :user, stub_model(User, :created_at => Time.now)
-  end
 
-  it "renders attributes in <p>" do
     render
+
+    rendered.should =~ /has not yet created any content/
   end
 end

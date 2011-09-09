@@ -1,13 +1,17 @@
 require 'spec_helper'
 
 describe "users/index.html.haml" do
-  before(:each) do
-    users = [ stub_model(User), stub_model(User) ]
+  it "renders a list of users" do
+    users = [
+      stub_model(User, :username => "jim"),
+      stub_model(User, :username => "ray")
+    ]
     users.stub :total_pages => 1
     assign :users, users
-  end
 
-  it "renders a list of users" do
     render
+
+    rendered.should =~ /jim/
+    rendered.should =~ /ray/
   end
 end
