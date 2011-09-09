@@ -55,10 +55,9 @@ class PostsController < ApplicationController
     @post = current_user.posts.new(params[:post])
 
     if @post.save
-      respond_with(@post, :status => :created,
-          :location => user_post_path(current_user, @post))
+      respond_with(@post, :status => :created, :location => user_post_path(current_user, @post))
     else
-      respond_with(@post.errors, :status => :unprocessable_entity) do |format|
+      respond_with(@post, :status => :unprocessable_entity, :location => posts_path) do |format|
         format.html { render :action => "new" }
       end
     end
@@ -71,11 +70,14 @@ class PostsController < ApplicationController
     @post = current_user.posts.find_by_param(params[:id])
 
     if @post.update_attributes(params[:post])
-      respond_with(@post, :head => :ok,
-          :location => user_post_path(current_user, @post))
+      respond_with(@post, :head => :ok, :location => user_post_path(current_user, @post))
     else
-      respond_with(@post.errors, :status => :unprocessable_entity) do |format|
+      respond_with(@post, :status => :unprocessable_entity) do |format|
         format.html { render :action => "edit" }
+        format.xml  {
+          # FIXME: respond_with returns code 200 instead of 422 without this
+          render :xml => @post, :status => :unprocessable_entity
+        }
       end
     end
   end
