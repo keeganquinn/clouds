@@ -13,6 +13,7 @@ gem 'will_paginate'
 group :assets do
   gem 'coffee-rails'
   gem 'sass-rails'
+  gem 'therubyracer'
   gem 'uglifier'
 end
 
