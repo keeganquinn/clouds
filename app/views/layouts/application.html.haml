@@ -1,63 +1,61 @@
-!!!
-%html
-  %head
-    %title
-      = content_for :title
-      \- cloudscontrol.us
-    %meta{:name => 'Description', :content => 'cloudscontrol.us is a private community of artists, musicians, and other creative professionals who need a place to store and trade assets, share new work, and communicate with others.'}
-    %meta{:name => 'Keywords', :content => 'cloudscontrol.us, clouds control us, clouds, collaboration, file collaboration, art collaboration, art display, music collaboration, music'}
+!!! 5
+/[if lt IE 7] <html class="no-js ie6 oldie" lang="en">
+/[if IE 7]    <html class="no-js ie7 oldie" lang="en">
+/[if IE 8]    <html class="no-js ie8 oldie" lang="en">
+/[if gt IE 8] <!--> <html class="no-js" lang="en"> <!--
+%head
+  %meta{:charset => 'utf-8'}/
+  %title= "#{content_for(:title)} - #{t(:cloudscontrolus)}"
+  %meta{:name => 'author', :content => t(:author)}
+  %meta{:name => 'description', :content => t(:description)}
+  %meta{:name => 'keywords', :content => t(:keywords)}
+  = stylesheet_link_tag 'application', :media => 'all'
+  = javascript_include_tag 'modernizr'
+  = csrf_meta_tag
 
-    = stylesheet_link_tag 'application'
-    = csrf_meta_tag
-    = yield(:head)
+%body
+  #container
+    %header= t(:cloudscontrolus)
 
-  %body
-    #container
-      #banr
-        cloudscontrol.us
+    %nav
+      %ul
+        %li= link_to t(:home), root_path
+        %li= link_to Post.model_name.human.pluralize, posts_path
+        %li= link_to User.model_name.human.pluralize, users_path
 
-      #navbar
-        %ul
-          %li= link_to 'Home', root_path
-          %li= link_to 'Posts', posts_path
-          %li= link_to 'Users', users_path
-
-        %p
-          - if user_signed_in?
-            - unless current_user.username.blank?
-              = link_to current_user.to_param, user_path(current_user)
-            - else
-              = current_user.email
-            \|
-            = link_to 'Profile', edit_user_registration_path
-            \|
-            = link_to 'Sign Out', destroy_user_session_path
+      %p
+        - if user_signed_in?
+          - unless current_user.username.blank?
+            = link_to current_user.to_param, user_path(current_user)
           - else
-            = link_to 'Register', new_user_registration_path
-            \|
-            = link_to 'Sign In', new_user_session_path
+            = current_user.email
+          \|
+          = link_to t(:profile), edit_user_registration_path
+          \|
+          = link_to t(:sign_out), destroy_user_session_path
+        - else
+          = link_to t(:register), new_user_registration_path
+          \|
+          = link_to t(:sign_in), new_user_session_path
 
-      - flash.each do |name, msg|
-        - if msg.is_a?(String)
-          = content_tag :div, msg, :class => 'flash', :id => "flash_#{name}"
+    - flash.each do |name, msg|
+      - if msg.is_a?(String)
+        = content_tag :div, msg, :class => 'flash', :id => "flash_#{name}"
 
-      #content
-        - unless content_for(:box).empty?
-          #box= content_for :box
+    #content
+      - unless content_for(:box).empty?
+        %aside= content_for :box
 
-        = yield
+      = yield
 
-      #foot
-        © 2011 cloudscontrol.us
+    %footer
+      %p
+        © 2011
+        = link_to(t(:keeganquinn), 'http://keegan.ws')
 
-    = javascript_include_tag 'application'
-    :javascript
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-19148581-1']);
-      _gaq.push(['_trackPageview']);
+  = javascript_include_tag 'application', :defer => true
+  %script
+    window._gaq = [['_setAccount','UA-19148581-1'],['_trackPageview'],['_trackPageLoadTime']];
+    Modernizr.load({load: ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js'});
 
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
+</html>
