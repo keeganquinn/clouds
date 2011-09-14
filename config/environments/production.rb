@@ -14,8 +14,8 @@ Clouds::Application.configure do
   # Compress JavaScripts and CSS
   config.assets.compress = true
 
-  # Don't fallback to assets pipeline if a precompiled asset is missed
-  config.assets.compile = false
+  # Allow live asset compilation in production; not recommended but it's a low-volume site.
+  config.assets.compile = true
 
   # Generate digests for assets URLs
   config.assets.digest = true
