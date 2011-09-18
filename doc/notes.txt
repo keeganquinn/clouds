@@ -17,5 +17,3 @@ keegan:
 
  - text, images, audio, video, binary attachments to posts 
 
- - different formats for text: markdown, textile, etc etc,
-

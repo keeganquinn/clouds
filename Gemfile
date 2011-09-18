@@ -2,12 +2,12 @@ source 'http://rubygems.org'
 
 gem 'rails'
 
+gem 'bluecloth'
 gem 'capistrano'
 gem 'devise'
 gem 'haml'
 gem 'jquery-rails'
 gem 'mysql2'
-gem 'RedCloth'
 gem 'will_paginate'
 
 group :assets do

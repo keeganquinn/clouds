@@ -1,7 +1,6 @@
 GEM
   remote: http://rubygems.org/
   specs:
-    RedCloth (4.2.8)
     ZenTest (4.5.0)
     actionmailer (3.1.0)
       actionpack (= 3.1.0)
@@ -36,6 +35,7 @@ GEM
     autotest-rails (4.1.1)
       ZenTest (= 4.5)
     bcrypt-ruby (3.0.1)
+    bluecloth (2.1.0)
     builder (3.0.0)
     capistrano (2.8.0)
       highline
@@ -154,8 +154,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  RedCloth
   autotest-rails
+  bluecloth
   capistrano
   coffee-rails
   devise

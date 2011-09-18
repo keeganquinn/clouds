@@ -1,20 +1,23 @@
-- content_for :title, 'Welcome'
+- content_for :title, t(:home)
 - content_for :box, render(:partial => 'box')
 
-%h1= content_for :title
+:markdown
+  # Welcome to the clouds.
 
-:textile
-  *cloudscontrol.us* is a private community of musicians, artists, and creatives.
+  **cloudscontrol.us** is a small community of musicians,
+  artists and creatives.
 
-  This site allows users to easily share files and collaborate on projects. It's not just about sharing files, but also easily working together with your friends and peers.
-
-  There is no limit to what we can do, when we let the clouds control us.
-
-  Stuff is fluffy.
+  This site allows users to easily share files and collaborate on projects.
+  It's not just about sharing files, but also easily working together with
+  your friends and peers.
 
 
-  !#{image_path 'feat_string.jpg'}(Featured Artist: string)!
+  #{image_tag 'feat_string.jpg'}
 
-  h1. Featured Artist
+  # Featured Artist: str1ng
 
-  ::*string*:: is an experimental electronic artist currently working on his third release. He has made this work in progress available "here":http://donk.sniz.org/~string/controlapparatus.mp3.
+  [str1ng](http://cloudscontrol.us/users/stringo) is an experimental
+  electronic artist and musician, in addition to being the creator of
+  this site. His current work in available
+  [on SoundCloud](http://soundcloud.com/str1ng).
+
