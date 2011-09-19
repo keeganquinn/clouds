@@ -18,6 +18,7 @@ audio:not([controls]) { display: none; }
 /* Primary style bits */
 body {
   background: url("<%= asset_path 'bg.jpg' %>") top left repeat-x;
+  background-attachment: fixed;
   font-size: 14px;
   line-height: 1.231;
   margin: 0;
@@ -52,8 +53,10 @@ p {
 }
 
 #container  {
-  margin: 1em 1em 0 1em;
+  background: black;
   border: 1px solid white;
+  color: silver;
+  margin: 1em 1em 1em 1em;
 }
 
 header {
@@ -125,10 +128,8 @@ nav p a:visited {
 }
 
 #content {
-  background: black;
-  color: silver;
-  padding: 0.5em 1em 0 1em;
   min-height: 600px;
+  padding: 0.5em 1em 1em 1em;
 }
 
 aside {
