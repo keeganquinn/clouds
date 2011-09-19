@@ -23,18 +23,19 @@ body {
   margin: 0;
 }
 
-body { color: white; font-family: Verdana, Helvetica, Arial, sans-serif; }
+body { color: silver; font-family: Verdana, Helvetica, Arial, sans-serif; }
 button, input, select, textarea { color: black; font-family: Verdana, Helvetica, sans-serif; }
 
-a { color: silver; text-decoration: none; }
-a:visited { color: silver; text-decoration: none; }
-a:hover { color: silver; text-decoration: underline; }
+a { color: white; text-decoration: none; }
+a:visited { color: white; text-decoration: none; }
+a:hover { color: white; text-decoration: underline; }
 
 h1 {
   margin-bottom: 1em;
   margin-top: 1em;
   text-transform: lowercase;
   font-size: 18px;
+  color: white;
 }
 
 h2 {
@@ -42,6 +43,7 @@ h2 {
   margin-top: 1em;
   text-transform: lowercase;
   font-size: 16px;
+  color: white;
 }
 
 p {
@@ -129,21 +131,23 @@ nav p a:visited {
 
 #content {
   background: black;
-  color: white;
+  color: silver;
   padding: 4px;
   padding-left: 1em;
   min-height: 600px;
 }
 
 aside {
-  position: relative;
+  background: #333;
+  border-radius: 5px;
   float: right;
-  padding-left: 4px;
-  padding-right: 4px;
-  margin: 4px 4px 0 4px;
-  width: 212px;
-  min-height: 300px;
-  background: url("<%= asset_path 'newsbox.jpg' %>") top right no-repeat;
+  margin-left: 1em;
+  margin-right: 0.5em;
+  margin-top: 0.5em;
+  max-width: 25%;
+  padding-left: 1em;
+  padding-right: 1em;
+  -moz-border-radius: 5px;
 }
 
 aside a {
@@ -153,14 +157,6 @@ aside a {
 aside a:hover {
   color: white;
   text-decoration: underline;
-}
-
-aside p {
-  margin-left: 8px;
-}
-
-aside h2 {
-  text-align: right;
 }
 
 footer {
@@ -188,6 +184,10 @@ footer a:visited {
   margin-top: 1em;
   margin-bottom: 1em;
   margin-left: 1em;
+}
+
+.right {
+  float: right;
 }
 
 
