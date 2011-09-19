@@ -1,4 +1,4 @@
-- content_for :title, "Posts by #{@user ? @user.to_param : 'all users'}"
+- content_for :title, @user.blank? ? "Posts" : "Posts by #{@user.to_param}"
 - content_for :box, render(:partial => @user ? 'users/info' : 'welcome/box')
 
 %h1= content_for :title
