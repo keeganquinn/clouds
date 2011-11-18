@@ -4,7 +4,7 @@ Devise.setup do |config|
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class with default "from" parameter.
-  config.mailer_sender = "please-change-me-at-config-initializers-devise@example.com"
+  config.mailer_sender = "cloudscontrol.us <noreply@cloudscontrol.us>"
 
   # Configure the class responsible to send e-mails.
   # config.mailer = "Devise::Mailer"
@@ -69,7 +69,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 10
 
   # Setup a pepper to generate the encrypted password.
-  # config.pepper = "ca2fea7caa0daef94f04dcb0901bd1d4761e8591bd72cc6ac04172bd4a0a5f5523d87ed0412f8ef4f6a0d83dfa431d71602e880acde807cd2b0f505e3eb32bff"
+  config.pepper = "69d80ee6d3b57d2a09bf078693a69da173b1af119ae05a148d51decc711a006f1ef772c68a43b089b4b126a8fba73d6f344d6e42989207fcbeb0f6c0db90d55f"
 
   # ==> Configuration for :confirmable
   # A period that the user is allowed to access the website even without
@@ -153,7 +153,7 @@ Devise.setup do |config|
   # :authlogic_sha512 (then you should set stretches above to 20 for default behavior)
   # and :restful_authentication_sha1 (then you should set stretches to 10, and copy
   # REST_AUTH_SITE_KEY to pepper)
-  # config.encryptor = :sha512
+  config.encryptor = :bcrypt
 
   # ==> Configuration for :token_authenticatable
   # Defines name of the authentication token params key
