@@ -9,5 +9,6 @@ db/schema.rb
 doc/api
 doc/app
 log/*.log
+public/assets
 tmp/**/*
 .sass-cache/
