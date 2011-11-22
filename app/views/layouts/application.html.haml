@@ -9,9 +9,15 @@
     %title= "#{content_for(:title)} - #{t(:cloudscontrolus)}"
   - else
     %title= t(:cloudscontrolus)
-  %meta{:name => 'author', :content => t(:author)}
-  %meta{:name => 'description', :content => t(:description)}
-  %meta{:name => 'keywords', :content => t(:keywords)}
+  %meta{:name => 'author', :content => t(:author)}/
+  %meta{:name => 'description', :content => t(:description)}/
+  %meta{:name => 'keywords', :content => t(:keywords)}/
+  %link{:rel => 'publisher', :href => 'https://plus.google.com/116539406992140259305'}/
+  = favicon_link_tag 'favicon.ico'
+  = favicon_link_tag 'apple-touch-icon-114x114.png', :rel => 'apple-touch-icon', :type => 'image/png'
+  = favicon_link_tag 'apple-touch-icon-114x114.png', :rel => 'icon', :sizes => '114x114', :type => 'image/png'
+  = favicon_link_tag 'apple-touch-icon-72x72.png', :rel => 'icon', :sizes => '72x72', :type => 'image/png'
+  = favicon_link_tag 'apple-touch-icon-57x57.png', :rel => 'icon', :sizes => '57x57', :type => 'image/png'
   = stylesheet_link_tag 'application', :media => 'all'
   = javascript_include_tag 'modernizr'
   = csrf_meta_tag
