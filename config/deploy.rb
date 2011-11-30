@@ -3,7 +3,7 @@ require 'bundler/capistrano'
 set :application, "clouds"
 
 set :scm, :git
-set :repository, "git@github.com:keeganquinn/clouds.git"
+set :repository, "git://github.com/keeganquinn/clouds.git"
 
 set :domain, "cloudscontrol.us"
 role :web, domain
