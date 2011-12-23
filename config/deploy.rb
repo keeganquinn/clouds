@@ -5,7 +5,7 @@ set :application, "clouds"
 set :scm, :git
 set :repository, "git://github.com/keeganquinn/clouds.git"
 
-set :domain, "cloudscontrol.us"
+set :domain, "nil.keegan.ws"
 role :web, domain
 role :app, domain
 role :db, domain, :primary => true
