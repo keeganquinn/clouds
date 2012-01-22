@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "posts/edit.html.haml" do
+describe "posts/edit" do
   it "renders the edit post form" do
     assign :post, @post = stub_model(Post, :new_record? => false, :code => 'test', :user => stub_model(User))
 

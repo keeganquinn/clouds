@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "users/index.html.haml" do
+describe "users/index" do
   it "renders a list of users" do
     users = [
       stub_model(User, :username => "jim"),

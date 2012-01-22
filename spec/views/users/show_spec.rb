@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "users/show.html.haml" do
+describe "users/show" do
   it "renders a user profile" do
     assign :user, stub_model(User, :created_at => Time.now)
 
