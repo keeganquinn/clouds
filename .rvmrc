@@ -1,1 +1,1 @@
-rvm ruby-1.9.2@clouds --create
+rvm ruby-1.9.3@clouds --create
