@@ -22,6 +22,7 @@ end
 
 group :development, :test do
   gem 'autotest-rails'
+  gem 'factory_girl_rails'
   gem 'rspec-rails'
   gem 'simplecov', :require => false
   gem 'sqlite3'
