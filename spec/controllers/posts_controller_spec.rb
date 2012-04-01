@@ -2,8 +2,8 @@ require 'spec_helper'
 
 describe PostsController do
   before(:all) do
-    @user = Factory(:user)
-    @post = Factory(:post, :user => @user)
+    @user = FactoryGirl.create(:user)
+    @post = FactoryGirl.create(:post, :user => @user)
   end
 
   describe "GET index" do
@@ -137,14 +137,14 @@ describe PostsController do
       it "redirects to the created post when the html format is requested" do
         sign_in @user
 
-        post :create, :post => Factory.attributes_for(:post)
+        post :create, :post => FactoryGirl.attributes_for(:post)
         response.should redirect_to(user_post_path(@user, assigns(:post)))
       end
 
       it "provides a success code when the json format is requested" do
         sign_in @user
 
-        post :create, :post => Factory.attributes_for(:post), :format => :json
+        post :create, :post => FactoryGirl.attributes_for(:post), :format => :json
         response.response_code.should eq(201)
         response.content_type.should eq("application/json")
       end
@@ -152,7 +152,7 @@ describe PostsController do
       it "provides a success code when the xml format is requested" do
         sign_in @user
 
-        post :create, :post => Factory.attributes_for(:post), :format => :xml
+        post :create, :post => FactoryGirl.attributes_for(:post), :format => :xml
         response.response_code.should eq(201)
         response.content_type.should eq("application/xml")
       end
