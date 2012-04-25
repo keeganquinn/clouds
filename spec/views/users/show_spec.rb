@@ -1,8 +1,10 @@
 require 'spec_helper'
 
 describe "users/show" do
+  let(:user) { create(:user) }
+
   it "renders a user profile" do
-    assign :user, stub_model(User, username: 'test', created_at: Time.now)
+    assign :user, user
 
     render
 

@@ -1,11 +1,14 @@
 require 'spec_helper'
 
 describe "posts/show" do
+  let(:user) { create(:user) }
+  let(:post) { create(:post, user: user) }
+
   it "renders a post" do
-    assign :post, stub_model(Post, subject: "Test", body: "Just a test.", created_at: Time.now, user: stub_model(User, username: 'test'))
+    assign :post, post
 
     render
 
-    rendered.should =~ /Just a test/
+    rendered.should =~ /#{post.body}/
   end
 end

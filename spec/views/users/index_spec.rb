@@ -1,17 +1,15 @@
 require 'spec_helper'
 
 describe "users/index" do
+  let!(:users) { [ create(:user), create(:user) ] }
+
   it "renders a list of users" do
-    users = [
-      stub_model(User, username: "jim"),
-      stub_model(User, username: "ray")
-    ]
-    users.stub total_pages: 1
-    assign :users, users
+    assign :users, User.paginate(page: 1)
 
     render
 
-    rendered.should =~ /jim/
-    rendered.should =~ /ray/
+    users.each do |user|
+      rendered.should =~ /#{user.username}/
+    end
   end
 end

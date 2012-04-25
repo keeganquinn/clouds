@@ -1,8 +1,11 @@
 require 'spec_helper'
 
 describe "posts/new" do
+  let(:user) { create(:user) }
+  let(:post) { create(:post, user: user) }
+
   it "renders the new post form" do
-    assign :post, stub_model(Post).as_new_record
+    assign :post, post
 
     render
 
