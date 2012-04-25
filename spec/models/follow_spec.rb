@@ -1,8 +1,8 @@
 require 'spec_helper'
 
 describe Follow do
-  let(:follower) { FactoryGirl.create(:user) }
-  let(:followed) { FactoryGirl.create(:user) }
+  let(:follower) { create(:user) }
+  let(:followed) { create(:user) }
   let(:follow) do
     follower.follows.build(follow_user_id: followed.id)
   end
