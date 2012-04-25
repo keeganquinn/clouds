@@ -4,6 +4,9 @@ Clouds::Application.routes.draw do
   resources :posts, :only => [ :index, :new, :create ]
   resources :users, :only => [ :index, :show ] do
     resources :posts, :except => [ :new, :create ]
+    member do
+      post 'follow'
+    end
   end
 
   root :to => "welcome#index"

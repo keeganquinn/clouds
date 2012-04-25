@@ -1,5 +1,5 @@
-def setup_user(email = 'test@test.com', password = 'test123')
-  u = User.new(:email => email, :password => password)
+def setup_user(username = 'test', email = 'test@test.com', password = 'test123')
+  u = User.new(username: username, email: email, password: password)
   u.confirmed_at = Time.now
 
   u.save

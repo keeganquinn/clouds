@@ -1,7 +1,6 @@
-- unless @user.username.blank?
-  %p
-    %b Username:
-    = @user.username
+%p
+  %b Username:
+  = @user.username
 
 - unless @user.name.blank?
   %p
@@ -13,9 +12,29 @@
     %b Location:
     = @user.location
 
+- if user_signed_in? and current_user != @user
+  - if current_user.follows.exists?(follow_user_id: @user.id)
+    %p= link_to 'Unfollow', follow_user_path(@user), method: 'post'
+  - else
+    %p= link_to 'Follow', follow_user_path(@user), method: 'post'
+
 %p Member since #{time_ago_in_words(@user.created_at)} ago
 
 %p
   = link_to_unless_current 'Profile', user_path(@user)
   &dash;
   = link_to_unless_current 'Posts', user_posts_path(@user)
+
+- unless @user.followed_users.empty?
+  %p Following:
+
+  %ul
+    - @user.followed_users.each do |user|
+      %li= link_to user.username, user
+
+- unless @user.follower_users.empty?
+  %p Followers:
+
+  %ul
+    - @user.follower_users.each do |user|
+      %li= link_to user.username, user

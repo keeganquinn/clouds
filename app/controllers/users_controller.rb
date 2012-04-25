@@ -1,11 +1,12 @@
 class UsersController < ApplicationController
+  before_filter :authenticate_user!, only: [ :follow ]
   respond_to :html, :json, :xml
 
   # GET /users
   # GET /users.json
   # GET /users.xml
   def index
-    @users = User.with_profile.paginate(:page => params[:page])
+    @users = User.paginate(page: params[:page])
     respond_with(@users)
   end
 
@@ -15,5 +16,20 @@ class UsersController < ApplicationController
   def show
     @user = User.find_by_param(params[:id])
     respond_with(@user)
+  end
+
+  # POST /users/id/follow
+  # POST /users/id/follow.json
+  # POST /users/id/follow.xml
+  def follow
+    @user = User.find_by_param(params[:id])
+
+    if current_user.following?(@user)
+      current_user.unfollow!(@user)
+    else
+      current_user.follow!(@user)
+    end
+
+    redirect_to(@user)
   end
 end
