@@ -4,7 +4,7 @@ class GenerateUsernames < ActiveRecord::Migration
 
     users.each do |user|
       user.username = "user#{user.id}"
-      user.save(false)
+      user.save(validate: false)
     end
   end
 
