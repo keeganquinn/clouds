@@ -1,5 +1,5 @@
 - content_for :title, @user.blank? ? "Posts" : "Posts by #{@user.to_param}"
-- content_for :box, render(:partial => @user ? 'users/info' : 'welcome/box')
+- content_for :box, render(partial: @user ? 'users/info' : 'welcome/box')
 
 %h1= content_for :title
 
@@ -17,6 +17,6 @@
 
 %ul
   - @posts.each do |post|
-    = render :partial => 'item', :locals => { :post => post }
+    = render partial: 'item', locals: { post: post }
 
 %p= will_paginate @posts

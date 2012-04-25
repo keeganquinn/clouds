@@ -24,8 +24,7 @@
       = link_to 'Edit post', edit_user_post_path(@post.user, @post)
       &dash;
       = link_to 'Delete post', user_post_path(@post.user, @post),
-        :method => :delete,
-        :confirm => "Are you sure you wish to delete this post?"
+        method: :delete, confirm: "Are you sure you wish to delete this post?"
 
   - unless @post.replies.empty?
     %p
@@ -38,7 +37,7 @@
             = link_to reply.user.to_param, user_path(reply.user)
 
   - if user_signed_in?
-    %p= link_to 'New reply', new_post_path(:in_reply_to_post_id => @post.id)
+    %p= link_to 'New reply', new_post_path(in_reply_to_post_id: @post.id)
   - else
     %p
       = link_to 'Log in', new_user_session_path

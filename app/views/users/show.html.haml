@@ -1,5 +1,5 @@
 - content_for :title, @user.to_param
-- content_for :box, render(:partial => 'info')
+- content_for :box, render(partial: 'info')
 
 - if @user.content.blank?
   %h1 Profile

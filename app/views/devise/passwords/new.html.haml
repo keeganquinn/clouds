@@ -1,12 +1,12 @@
 - content_for :title, 'Forgot your password?'
-- content_for :box, render(:partial => 'users/help')
+- content_for :box, render(partial: 'users/help')
 
 %h1= content_for :title
 
 %p Use this form if you have forgotten your password. Provide the email address registered with your account and instructions to reset the password will be sent. Please allow up to 15 minutes for the message to be delivered.
 
-= form_for(resource, :as => resource_name,
-    :url => password_path(resource_name), :html => { :method => :post }) do |f|
+= form_for(resource, as: resource_name,
+    url: password_path(resource_name), html: { method: :post }) do |f|
   = devise_error_messages!
 
   %p

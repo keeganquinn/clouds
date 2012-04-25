@@ -7,4 +7,4 @@
   - unless post.replies.empty?
     %ul
       - post.replies.each do |reply|
-        = render :partial => 'item', :locals => { :post => reply }
+        = render partial: 'item', locals: { post: reply }

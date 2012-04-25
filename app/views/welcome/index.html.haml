@@ -1,4 +1,4 @@
-- content_for :box, render(:partial => 'box')
+- content_for :box, render(partial: 'box')
 
 %article
   :markdown
@@ -16,7 +16,7 @@
   :markdown
     # Featured Artist: str1ng
 
-    #{link_to image_tag('feat_string.jpg', :alt => 'str1ng', :class => 'left'), 'https://cloudscontrol.us/users/stringo'}
+    #{link_to image_tag('feat_string.jpg', alt: 'str1ng', class: 'left'), 'https://cloudscontrol.us/users/stringo'}
 
     Josh Steinke, better known as
     [str1ng](https://cloudscontrol.us/users/stringo), is an experimental
@@ -37,7 +37,7 @@
   :markdown
     # Featured Artist: Keegan
 
-    #{link_to image_tag('feat_keegan.jpg', :alt => 'Keegan', :class => 'right'), 'https://cloudscontrol.us/users/keegan'}
+    #{link_to image_tag('feat_keegan.jpg', alt: 'Keegan', class: 'right'), 'https://cloudscontrol.us/users/keegan'}
 
     [Keegan Quinn](https://cloudscontrol.us/users/keegan) is a software and
     systems consultant with a passion for music. He provides the technical

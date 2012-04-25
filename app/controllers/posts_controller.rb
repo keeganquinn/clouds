@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_filter :authenticate_user!, :except => [ :index, :show ]
+  before_filter :authenticate_user!, except: [ :index, :show ]
   respond_to :html, :json, :xml
 
   # GET /posts
@@ -10,10 +10,10 @@ class PostsController < ApplicationController
   # GET /users/user_id/posts.xml
   def index
     if params[:user_id].blank?
-      @posts = Post.top.paginate(:page => params[:page])
+      @posts = Post.top.paginate(page: params[:page])
     else
       @user = User.find_by_param(params[:user_id])
-      @posts = @user.posts.top.paginate(:page => params[:page])
+      @posts = @user.posts.top.paginate(page: params[:page])
     end
 
     respond_with(@posts)
@@ -55,11 +55,11 @@ class PostsController < ApplicationController
     @post = current_user.posts.new(params[:post])
 
     if @post.save
-      flash[:notice] = t(:create_success, :thing => Post.model_name.human)
-      respond_with(@post, :status => :created, :location => user_post_path(current_user, @post))
+      flash[:notice] = t(:create_success, thing: Post.model_name.human)
+      respond_with(@post, status: :created, location: user_post_path(current_user, @post))
     else
-      respond_with(@post, :status => :unprocessable_entity, :location => posts_path) do |format|
-        format.html { render :action => "new" }
+      respond_with(@post, status: :unprocessable_entity, location: posts_path) do |format|
+        format.html { render action: "new" }
       end
     end
   end
@@ -71,14 +71,14 @@ class PostsController < ApplicationController
     @post = current_user.posts.find_by_param(params[:id])
 
     if @post.update_attributes(params[:post])
-      flash[:notice] = t(:update_success, :thing => Post.model_name.human)
-      respond_with(@post, :head => :ok, :location => user_post_path(current_user, @post))
+      flash[:notice] = t(:update_success, thing: Post.model_name.human)
+      respond_with(@post, head: :ok, location: user_post_path(current_user, @post))
     else
-      respond_with(@post, :status => :unprocessable_entity) do |format|
-        format.html { render :action => "edit" }
+      respond_with(@post, status: :unprocessable_entity) do |format|
+        format.html { render action: "edit" }
         format.xml  {
           # FIXME: respond_with returns code 200 instead of 422 without this
-          render :xml => @post, :status => :unprocessable_entity
+          render xml: @post, status: :unprocessable_entity
         }
       end
     end
@@ -91,7 +91,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.find_by_param(params[:id])
     @post.destroy
 
-    flash[:notice] = t(:delete_success, :thing => Post.model_name.human)
-    respond_with(current_user, :head => :ok, :location => user_posts_path(current_user))
+    flash[:notice] = t(:delete_success, thing: Post.model_name.human)
+    respond_with(current_user, head: :ok, location: user_posts_path(current_user))
   end
 end
