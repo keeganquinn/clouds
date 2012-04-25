@@ -7,14 +7,14 @@ describe "Posts workflow" do
     get new_post_path
     response.should render_template(:new)
 
-    post posts_path, :post => {:code => '', :subject => 'Test', :body => 'Just a test!'}
+    post posts_path, :post => { code: '', subject: 'Test', body: 'Just a test!' }
     response.should redirect_to(user_post_path(@user, assigns(:post)))
 
     follow_redirect!
     response.should render_template(:show)
     response.body.should include("created successfully")
 
-    put user_post_path(@user, assigns(:post)), :post => { :body => 'Slightly different test.'}
+    put user_post_path(@user, assigns(:post)), :post => { body: 'Slightly different test.' }
     response.should redirect_to(user_post_path(@user, assigns(:post)))
 
     follow_redirect!
