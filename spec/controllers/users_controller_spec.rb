@@ -16,17 +16,17 @@ describe UsersController do
     end
 
     it 'renders HTML when the html format is requested' do
-      get :index, :format => :html
+      get :index, format: :html
       response.should render_template("index")
     end
 
     it 'renders JSON when the json format is requested' do
-      get :index, :format => :json
+      get :index, format: :json
       response.content_type.should eq("application/json")
     end
 
     it 'renders XML when the xml format is requested' do
-      get :index, :format => :xml
+      get :index, format: :xml
       response.content_type.should eq("application/xml")
     end
   end
@@ -35,22 +35,22 @@ describe UsersController do
     it "assigns the requested user as @user" do
       User.stub(:find_by_param).with("37").and_return(mock_user)
 
-      get :show, :id => "37"
+      get :show, id: "37"
       assigns(:user).should be(mock_user)
     end
 
     it 'renders HTML when the html format is requested' do
-      get :index, :format => :html
+      get :index, format: :html
       response.should render_template("index")
     end
 
     it 'renders JSON when the json format is requested' do
-      get :index, :format => :json
+      get :index, format: :json
       response.content_type.should eq("application/json")
     end
 
     it 'renders XML when the xml format is requested' do
-      get :index, :format => :xml
+      get :index, format: :xml
       response.content_type.should eq("application/xml")
     end
   end

@@ -5,7 +5,7 @@ class FixUserLocation < ActiveRecord::Migration
   end
 
   def down
-    add_column :users, :country, :string, :limit => 2
+    add_column :users, :country, :string, limit: 2
     rename_column :users, :location, :city
   end
 end
