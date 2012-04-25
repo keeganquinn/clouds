@@ -1,5 +1,5 @@
 class CreatePosts < ActiveRecord::Migration
-  def self.up
+  def change
     create_table :posts do |t|
       t.integer :user_id
       t.integer :in_reply_to_post_id
@@ -9,9 +9,5 @@ class CreatePosts < ActiveRecord::Migration
       t.boolean :published
       t.timestamps
     end
-  end
-
-  def self.down
-    drop_table :posts
   end
 end

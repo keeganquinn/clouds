@@ -1,9 +1,9 @@
 class RenameLoginAttribute < ActiveRecord::Migration
-  def self.up
+  def up
     rename_column :users, :login, :username
   end
 
-  def self.down
+  def down
     rename_column :users, :username, :login
   end
 end
