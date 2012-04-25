@@ -1,89 +1,72 @@
 require 'spec_helper'
 
 describe Post do
-  def mock_user(stubs = {})
-    (@mock_user ||= mock_model(User).as_null_object).tap do |user|
-      user.stub(stubs) unless stubs.empty?
-    end
+  let(:user) { create(:user) }
+  let(:post) { build(:post, user: user) }
+
+  subject { post }
+
+  it { should be_valid }
+
+  describe "reply" do
+    before { post.save }
+    let(:reply_post) { build(:post, user: user, in_reply_to_post_id: post.id) }
+
+    subject { reply_post }
+    it { should be_valid }
+    its(:in_reply_to_post) { should == post }
   end
 
-  before do
-    @post = Post.new
-    @post.user = mock_user
-    @post.subject = 'Test'
-    @post.body = 'This is a test post.'
+  describe "without a valid User" do
+    before { post.user = nil }
+    it { should_not be_valid }
   end
 
-  it 'should be valid with normal values' do
-    @post.should be_valid
+  describe "when code is too short" do
+    before { post.code = 't' }
+    it { should_not be_valid }
   end
 
-  it 'can be marked as a reply to another Post' do
-    @post.save.should be_true
-
-    reply_post = Post.new
-    reply_post.user = mock_user
-    reply_post.in_reply_to_post = @post
-    reply_post.subject = 'Reply test'
-    reply_post.body = 'This is a test reply.'
-    reply_post.should be_valid
+  describe "when code is too long" do
+    before { post.code = '0123456789' * 30 }
+    it { should_not be_valid }
   end
 
-  it 'can have replies' do
-    @post.replies.should be_instance_of(Array)
+  describe "when code is not unique" do
+    before { post.save }
+    let(:duplicate_post) { build(:post, user: user, code: post.code) }
+
+    subject { duplicate_post }
+    it { should_not be_valid }
   end
 
-  it 'should be invalid without a valid User' do
-    @post.user = nil
-    @post.should_not be_valid
+  describe "when code contains unwanted characters" do
+    before { post.code = 'bad!@$' }
+    it { should_not be_valid }
   end
 
-  it 'should be invalid if code is too short' do
-    @post.code = 't'
-    @post.should_not be_valid
+  describe "when subject is too short" do
+    before { post.subject = 't' }
+    it { should_not be_valid }
   end
 
-  it 'should be invalid if code is too long' do
-    @post.code = '0123456789' * 30
-    @post.should_not be_valid
+  describe "when subject is too long" do
+    before { post.subject = '0123456789' * 30 }
+    it { should_not be_valid }
   end
 
-  it 'should be invalid if code is not unique' do
-    @post.save.should be_true
-
-    duplicate_post = Post.new
-    duplicate_post.subject = 'Test'
-    duplicate_post.body = 'Duplicate test.'
-    duplicate_post.should_not be_valid
+  describe "when body is missing" do
+    before { post.body = nil }
+    it { should_not be_valid }
   end
 
-  it 'should be invalid if code contains unwanted characters' do
-    @post.code = 'bad!@$'
-    @post.should_not be_valid
+  describe "generate and find by URI parameter" do
+    before { post.save }
+    it { should == Post.find_by_param(post.to_param) }
   end
 
-  it 'should be invalid if subject is too short' do
-    @post.subject = 't'
-    @post.should_not be_valid
-  end
-
-  it 'should be invalid if subject is too long' do
-    @post.subject = '0123456789' * 30
-    @post.should_not be_valid
-  end
-
-  it 'should be invalid if body is missing' do
-    @post.body = nil
-    @post.should_not be_valid
-  end
-
-  it 'should be able to generate and find by a URI parameter' do
-    @post.save.should be_true
-    Post.find_by_param(@post.to_param).should eq(@post)
-  end
-
-  it 'should generate a code from the subject if none is provided' do
-    @post.save.should be_true
-    @post.code.should match(/test/)
+  describe "generate a code from the subject if none is provided" do
+    before { post.save }
+    its(:code) { should match(/test/) }
   end
 end

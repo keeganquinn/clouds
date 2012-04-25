@@ -19,7 +19,7 @@ describe Follow do
     end
   end
 
-  describe "follower methods" do
+  describe "associations" do
     before { follow.save }
 
     it { should respond_to(:user) }
