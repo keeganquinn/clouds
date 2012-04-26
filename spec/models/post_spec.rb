@@ -17,6 +17,26 @@ describe Post do
     its(:in_reply_to_post) { should == post }
   end
 
+  describe "accessible attributes" do
+    it "should not allow access to user_id" do
+      expect do
+        Post.new(user_id: user.id)
+      end.should raise_error(ActiveModel::MassAssignmentSecurity::Error)
+    end
+  end
+
+  describe "associations" do
+    before { post.save }
+
+    it { should respond_to(:user) }
+    it { should respond_to(:in_reply_to_post) }
+    it { should respond_to(:replies) }
+
+    its(:user) { should == user }
+    its(:in_reply_to_post) { should be_blank }
+    its(:replies) { should be_instance_of(Array) }
+  end
+
   describe "without a valid User" do
     before { post.user = nil }
     it { should_not be_valid }
