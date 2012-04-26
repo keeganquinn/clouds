@@ -6,11 +6,4 @@ FactoryGirl.define do
     password_confirmation 't3st1ng'
     confirmed_at Time.now
   end
-
-  factory :post do
-    user
-    sequence(:code) { |n| "test#{n}" }
-    subject 'Test'
-    body 'Just a test.'
-  end
 end
