@@ -1,0 +1,14 @@
+- content_for :title, 'Upload an attachment'
+- content_for :box, render(partial: 'users/help')
+
+%h1= content_for :title
+
+= form_for(@post_attachment, url: user_post_attachments_path(current_user, @post)) do |f|
+  %p
+    %b Attach to post:
+    %br/
+    = link_to @post_attachment.post.subject, user_post_path(current_user, @post)
+
+  %p= f.file_field :data
+
+  %p= f.submit 'Upload'

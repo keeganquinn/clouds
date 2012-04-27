@@ -1,5 +1,6 @@
 class Post < ActiveRecord::Base
   belongs_to :user
+  has_many :post_attachments
 
   belongs_to :in_reply_to_post, class_name: "Post"
   has_many :replies, class_name: "Post", foreign_key: "in_reply_to_post_id"

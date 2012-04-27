@@ -19,7 +19,18 @@
 
   %p Created #{time_ago_in_words(@post.created_at)} ago
 
+  - unless @post.post_attachments.empty?
+    %ul
+      - @post.post_attachments.each do |attachment|
+        %li
+          = link_to attachment.filename, user_post_attachment_path(@post.user, @post, attachment)
+          - if user_signed_in? and current_user.id == @post.user.id
+            = link_to "(remove)", user_post_attachment_path(@post.user, @post, attachment), method: :delete, confirm: "Are you sure you wish to delete this attachment?"
+
   - if user_signed_in? and current_user.id == @post.user.id
+    %p
+      = link_to 'Attach file', new_user_post_attachment_path(@post.user, @post)
+
     %p
       = link_to 'Edit post', edit_user_post_path(@post.user, @post)
       &dash;
