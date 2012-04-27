@@ -52,14 +52,14 @@ class PostsController < ApplicationController
   # POST /posts.json
   # POST /posts.xml
   def create
-    @post = current_user.posts.new(params[:post])
+    @post = current_user.posts.build(params[:post])
 
     if @post.save
       flash[:notice] = t(:create_success, thing: Post.model_name.human)
       respond_with(@post, status: :created, location: user_post_path(current_user, @post))
     else
       respond_with(@post, status: :unprocessable_entity, location: posts_path) do |format|
-        format.html { render action: "new" }
+        format.html { render :new }
       end
     end
   end
@@ -75,7 +75,7 @@ class PostsController < ApplicationController
       respond_with(@post, head: :ok, location: user_post_path(current_user, @post))
     else
       respond_with(@post, status: :unprocessable_entity) do |format|
-        format.html { render action: "edit" }
+        format.html { render :edit }
         format.xml  {
           # FIXME: respond_with returns code 200 instead of 422 without this
           render xml: @post, status: :unprocessable_entity
