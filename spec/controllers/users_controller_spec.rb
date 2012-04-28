@@ -1,49 +1,110 @@
 require 'spec_helper'
 
 describe UsersController do
-  let(:user) { create(:user) }
+  let!(:user) { create(:user) }
+
+  subject { response }
 
   describe "GET index" do
-    it "assigns all users as @users" do
-      get :index
-      assigns(:users).should include(user)
+    describe "with default format" do
+      before { get :index }
+      it { assigns(:users).should include(user) }
+      it { should render_template("index") }
     end
 
-    it 'renders HTML when the html format is requested' do
-      get :index, format: :html
-      response.should render_template("index")
+    describe "with json format" do
+      before { get :index, format: :json }
+      it { assigns(:users).should include(user) }
+      its(:content_type) { should == "application/json" }
     end
 
-    it 'renders JSON when the json format is requested' do
-      get :index, format: :json
-      response.content_type.should == "application/json"
-    end
-
-    it 'renders XML when the xml format is requested' do
-      get :index, format: :xml
-      response.content_type.should == "application/xml"
+    describe "with xml format" do
+      before { get :index, format: :xml }
+      it { assigns(:users).should include(user) }
+      its(:content_type) { should == "application/xml" }
     end
   end
 
   describe "GET show" do
-    it "assigns the requested user as @user" do
-      get :show, id: user.username
-      assigns(:user).should == user
+    describe "with default format" do
+      before { get :show, id: user.username }
+      it { assigns(:user).should == user }
+      it { should render_template("show") }
     end
 
-    it 'renders HTML when the html format is requested' do
-      get :index, format: :html
-      response.should render_template("index")
+    describe "with json format" do
+      before { get :show, id: user.username, format: :json }
+      it { assigns(:user).should == user }
+      its(:content_type) { should == "application/json" }
     end
 
-    it 'renders JSON when the json format is requested' do
-      get :index, format: :json
-      response.content_type.should == "application/json"
+    describe "with xml format" do
+      before { get :show, id: user.username, format: :xml }
+      it { assigns(:user).should == user }
+      its(:content_type) { should == "application/xml" }
+    end
+  end
+
+  describe "POST follow" do
+    describe "when not authorized" do
+      before { post :follow }
+      it { should redirect_to(new_user_session_path) }
     end
 
-    it 'renders XML when the xml format is requested' do
-      get :index, format: :xml
-      response.content_type.should == "application/xml"
+    describe "when authorized" do
+      before { sign_in follower }
+
+      let(:follower) { create(:user) }
+
+      describe "with default format" do
+        before { post :follow, id: user.username }
+        it { assigns(:user).should == user }
+        it { follower.should be_following(user) }
+        it { should redirect_to(user) }
+      end
+
+      describe "with json format" do
+        before { post :follow, id: user.username, format: :json }
+        it { assigns(:user).should == user }
+        it { follower.should be_following(user) }
+        its(:response_code) { should == 201 }
+        its(:content_type) { should == "application/json" }
+      end
+
+      describe "with xml format" do
+        before { post :follow, id: user.username, format: :xml }
+        it { assigns(:user).should == user }
+        it { follower.should be_following(user) }
+        its(:response_code) { should == 201 }
+        its(:content_type) { should == "application/xml" }
+      end
+
+      describe "unfollowing" do
+        before { follower.follow!(user) }
+
+        describe "with default format" do
+          before { post :follow, id: user.username }
+          it { assigns(:user).should == user }
+          it { follower.should_not be_following(user) }
+          it { should redirect_to(user) }
+        end
+
+        describe "with json format" do
+          before { post :follow, id: user.username, format: :json }
+          it { assigns(:user).should == user }
+          it { follower.should_not be_following(user) }
+          its(:response_code) { should == 201 }
+          its(:content_type) { should == "application/json" }
+        end
+
+        describe "with xml format" do
+          before { post :follow, id: user.username, format: :xml }
+          it { assigns(:user).should == user }
+          it { follower.should_not be_following(user) }
+          its(:response_code) { should == 201 }
+          its(:content_type) { should == "application/xml" }
+        end
+      end
     end
   end
 end
