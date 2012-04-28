@@ -30,6 +30,8 @@ class UsersController < ApplicationController
       current_user.follow!(@user)
     end
 
-    redirect_to(@user)
+    respond_with(@user, head: :ok) do |format|
+      format.html { redirect_to(@user) }
+    end
   end
 end
