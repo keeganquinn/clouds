@@ -76,17 +76,23 @@ describe PostAttachmentsController do
       describe "with invalid params" do
         describe "with default format" do
           before { post :create, user_id: user.username, post_id: a_post.code, post_attachment: {} }
+          it { assigns(:post_attachment).should be_a(PostAttachment) }
+          it { assigns(:post_attachment).errors.should_not be_empty }
           it { should redirect_to(user_post_path(user, a_post)) }
         end
 
         describe "with json format" do
           before { post :create, user_id: user.username, post_id: a_post.code, post_attachment: {}, format: :json }
+          it { assigns(:post_attachment).should be_a(PostAttachment) }
+          it { assigns(:post_attachment).errors.should_not be_empty }
           its(:response_code) { should == 422 }
           its(:content_type) { should == "application/json" }
         end
 
         describe "with xml format" do
           before { post :create, user_id: user.username, post_id: a_post.code, post_attachment: {}, format: :xml }
+          it { assigns(:post_attachment).should be_a(PostAttachment) }
+          it { assigns(:post_attachment).errors.should_not be_empty }
           its(:response_code) { should == 422 }
           its(:content_type) { should == "application/xml" }
         end
@@ -104,6 +110,8 @@ describe PostAttachmentsController do
       before { sign_in user }
 
       before { delete :destroy, user_id: user.username, post_id: a_post.code, id: post_attachment.filename }
+      it { assigns(:post_attachment).should == post_attachment }
+      it { assigns(:post_attachment).should be_destroyed }
       it { should redirect_to(user_post_path(user, a_post)) }
     end
   end
