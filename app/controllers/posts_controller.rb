@@ -23,8 +23,8 @@ class PostsController < ApplicationController
   # GET /users/user_id/posts/id.json
   # GET /users/user_id/posts/id.xml
   def show
-    user = User.find_by_param(params[:user_id])
-    @post = user.posts.find_by_param(params[:id])
+    @user = User.find_by_param(params[:user_id])
+    @post = @user.posts.find_by_param(params[:id])
 
     respond_with(@post)
   end
