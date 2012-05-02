@@ -1,12 +1,32 @@
 class DeviseCreateUsers < ActiveRecord::Migration
   def change
     create_table(:users) do |t|
-      t.database_authenticatable null: false
-      t.recoverable
-      t.rememberable
-      t.trackable
-      t.confirmable
-      t.token_authenticatable
+      # Database authenticatable
+      t.string :email, limit: 255, null: false, default: ''
+      t.string :encrypted_password, limit: 128, null: false, default: ''
+
+      # Recoverable
+      t.string :reset_password_token, limit: 255
+      # reset_password_sent_at added in later migration
+
+      # Rememberable
+      t.datetime :remember_created_at
+
+      # Trackable
+      t.integer :sign_in_count, default: 0
+      t.datetime :current_sign_in_at
+      t.datetime :last_sign_in_at
+      t.string :current_sign_in_ip, limit: 255
+      t.string :last_sign_in_ip, limit: 255
+
+      # Confirmable
+      t.string :confirmation_token, limit: 255
+      t.datetime :confirmed_at
+      t.datetime :confirmation_sent_at
+
+      # Token authenticatable
+      t.string :authentication_token, limit: 255
+
       t.timestamps
     end
 
