@@ -10,6 +10,15 @@ class Post < ActiveRecord::Base
 
   attr_accessible :in_reply_to_post_id, :code, :subject, :body, :published
 
+  define_index do
+    indexes code, sortable: true
+    indexes subject, sortable: true
+    indexes body
+    indexes post_attachments.filename, as: :attachments
+
+    has user_id, in_reply_to_post_id, created_at, updated_at
+  end
+
   validates :user, presence: true
 
   validates :code, length: { within: 3..255 }

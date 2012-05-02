@@ -15,6 +15,13 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
   attr_accessible :username, :name, :location, :content
 
+  define_index do
+    indexes username
+    indexes name
+    indexes location
+    indexes content
+  end
+
   validates :username, length: { within: 3..40 }
   validates :username, uniqueness: true
   validates :username, format: { with: /\A[A-Za-z0-9]+\Z/ }

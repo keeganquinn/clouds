@@ -8,6 +8,7 @@ gem 'devise'
 gem 'haml'
 gem 'jquery-rails'
 gem 'mysql2'
+gem 'thinking-sphinx'
 gem 'will_paginate'
 
 group :assets do
