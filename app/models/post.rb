@@ -10,14 +10,14 @@ class Post < ActiveRecord::Base
 
   attr_accessible :in_reply_to_post_id, :code, :subject, :body, :published
 
-  validates_presence_of :user
+  validates :user, presence: true
 
-  validates_length_of :code, within: 3..255
-  validates_uniqueness_of :code, scope: :user_id
-  validates_format_of :code, with: /\A[A-Za-z0-9_-]+\Z/
+  validates :code, length: { within: 3..255 }
+  validates :code, uniqueness: { scope: :user_id }
+  validates :code, format: { with: /\A[A-Za-z0-9_-]+\Z/ }
 
-  validates_length_of :subject, within: 3..255
-  validates_presence_of :body
+  validates :subject, length: { within: 3..255 }
+  validates :body, presence: true
 
   def to_param
     code

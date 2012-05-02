@@ -15,12 +15,12 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
   attr_accessible :username, :name, :location, :content
 
-  validates_length_of :username, within: 3..40
-  validates_uniqueness_of :username
-  validates_format_of :username, with: /\A[A-Za-z0-9]+\Z/
+  validates :username, length: { within: 3..40 }
+  validates :username, uniqueness: true
+  validates :username, format: { with: /\A[A-Za-z0-9]+\Z/ }
 
-  validates_length_of :name, maximum: 128
-  validates_length_of :location, maximum: 128
+  validates :name, length: { maximum: 128 }
+  validates :location, length: { maximum: 128 }
 
   def following?(other_user)
     follows.find_by_follow_user_id(other_user.id)

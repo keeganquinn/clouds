@@ -4,7 +4,7 @@ class Follow < ActiveRecord::Base
 
   attr_accessible :follow_user_id
 
-  validates_presence_of :user
-  validates_presence_of :followed
-  validates_uniqueness_of :follow_user_id, scope: :user_id
+  validates :user, presence: true
+  validates :followed, presence: true
+  validates :follow_user_id, uniqueness: { scope: :user_id }
 end

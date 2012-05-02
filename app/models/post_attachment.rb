@@ -5,15 +5,15 @@ class PostAttachment < ActiveRecord::Base
 
   attr_accessible :filename, :content_type, :data
 
-  validates_presence_of :post
+  validates :post, presence: true
 
-  validates_length_of :filename, within: 3..128
-  validates_uniqueness_of :filename, scope: :post_id
-  validates_format_of :filename, with: /\A[.A-Za-z0-9_-]+\Z/
+  validates :filename, length: { within: 3..128 }
+  validates :filename, uniqueness: { scope: :post_id }
+  validates :filename, format: { with: /\A[.A-Za-z0-9_-]+\Z/ }
 
-  validates_length_of :content_type, within: 3..128
+  validates :content_type, length: { within: 3..128 }
 
-  validates_presence_of :data
+  validates :data, presence: true
 
   def to_param
     filename
