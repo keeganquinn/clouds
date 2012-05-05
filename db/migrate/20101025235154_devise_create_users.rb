@@ -11,6 +11,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
 
       # Rememberable
       t.datetime :remember_created_at
+      t.string :remember_token, limit: 255
 
       # Trackable
       t.integer :sign_in_count, default: 0
