@@ -18,10 +18,6 @@ group :assets do
   gem 'uglifier'
 end
 
-group :production do
-  gem 'passenger'
-end
-
 group :development, :test do
   gem 'autotest-rails'
   gem 'factory_girl_rails'
