@@ -11,79 +11,79 @@ describe User do
     it "should not allow access to encrypted_password" do
       expect do
         User.new(encrypted_password: 'something')
-      end.should raise_error(ActiveModel::MassAssignmentSecurity::Error)
+      end.to raise_error(ActiveModel::MassAssignmentSecurity::Error)
     end
 
     it "should not allow access to reset_password_token" do
       expect do
         User.new(reset_password_token: 'something')
-      end.should raise_error(ActiveModel::MassAssignmentSecurity::Error)
+      end.to raise_error(ActiveModel::MassAssignmentSecurity::Error)
     end
 
     it "should not allow access to reset_password_sent_at" do
       expect do
         User.new(reset_password_sent_at: Time.now)
-      end.should raise_error(ActiveModel::MassAssignmentSecurity::Error)
+      end.to raise_error(ActiveModel::MassAssignmentSecurity::Error)
     end
 
     it "should not allow access to remember_created_at" do
       expect do
         User.new(remember_created_at: Time.now)
-      end.should raise_error(ActiveModel::MassAssignmentSecurity::Error)
+      end.to raise_error(ActiveModel::MassAssignmentSecurity::Error)
     end
 
     it "should not allow access to sign_in_count" do
       expect do
         User.new(sign_in_count: 0)
-      end.should raise_error(ActiveModel::MassAssignmentSecurity::Error)
+      end.to raise_error(ActiveModel::MassAssignmentSecurity::Error)
     end
 
     it "should not allow access to current_sign_in_at" do
       expect do
         User.new(current_sign_in_at: Time.now)
-      end.should raise_error(ActiveModel::MassAssignmentSecurity::Error)
+      end.to raise_error(ActiveModel::MassAssignmentSecurity::Error)
     end
 
     it "should not allow access to last_sign_in_at" do
       expect do
         User.new(last_sign_in_at: Time.now)
-      end.should raise_error(ActiveModel::MassAssignmentSecurity::Error)
+      end.to raise_error(ActiveModel::MassAssignmentSecurity::Error)
     end
 
     it "should not allow access to current_sign_in_ip" do
       expect do
         User.new(current_sign_in_ip: '127.0.0.1')
-      end.should raise_error(ActiveModel::MassAssignmentSecurity::Error)
+      end.to raise_error(ActiveModel::MassAssignmentSecurity::Error)
     end
 
     it "should not allow access to last_sign_in_ip" do
       expect do
         User.new(last_sign_in_ip: '127.0.0.1')
-      end.should raise_error(ActiveModel::MassAssignmentSecurity::Error)
+      end.to raise_error(ActiveModel::MassAssignmentSecurity::Error)
     end
 
     it "should not allow access to confirmation_token" do
       expect do
         User.new(confirmation_token: 'something')
-      end.should raise_error(ActiveModel::MassAssignmentSecurity::Error)
+      end.to raise_error(ActiveModel::MassAssignmentSecurity::Error)
     end
 
     it "should not allow access to confirmed_at" do
       expect do
         User.new(confirmed_at: Time.now)
-      end.should raise_error(ActiveModel::MassAssignmentSecurity::Error)
+      end.to raise_error(ActiveModel::MassAssignmentSecurity::Error)
     end
 
     it "should not allow access to confirmation_sent_at" do
       expect do
         User.new(confirmation_sent_at: Time.now)
-      end.should raise_error(ActiveModel::MassAssignmentSecurity::Error)
+      end.to raise_error(ActiveModel::MassAssignmentSecurity::Error)
     end
 
     it "should not allow access to authentication_token" do
       expect do
         User.new(authentication_token: 'something')
-      end.should raise_error(ActiveModel::MassAssignmentSecurity::Error)
+      end.to raise_error(ActiveModel::MassAssignmentSecurity::Error)
     end
   end
 

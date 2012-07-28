@@ -15,7 +15,7 @@ describe Follow do
     it "should not allow access to user_id" do
       expect do
         Follow.new(user_id: follower.id)
-      end.should raise_error(ActiveModel::MassAssignmentSecurity::Error)
+      end.to raise_error(ActiveModel::MassAssignmentSecurity::Error)
     end
   end
 
