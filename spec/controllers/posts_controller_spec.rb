@@ -9,19 +9,19 @@ describe PostsController do
   describe "GET index" do
     describe "with default format" do
       before { get :index }
-      it { assigns(:posts).should == [ a_post ] }
+      it { assigns(:posts).should == Post.top.paginate(page: nil) }
       it { should render_template("index") }
     end
 
     describe "with json format" do
       before { get :index, format: :json }
-      it { assigns(:posts).should == [ a_post ] }
+      it { assigns(:posts).should == Post.top.paginate(page: nil) }
       its(:content_type) { should == "application/json" }
     end
 
     describe "with xml format" do
       before { get :index, format: :xml }
-      it { assigns(:posts).should == [ a_post ] }
+      it { assigns(:posts).should == Post.top.paginate(page: nil) }
       its(:content_type) { should == "application/xml" }
     end
 
@@ -126,7 +126,7 @@ describe PostsController do
 
   describe "GET edit" do
     describe "when not authorized" do
-      before { get :edit }
+      before { get :edit, user_id: user.username, id: a_post.code }
       it { should redirect_to(new_user_session_path) }
     end
 
@@ -199,7 +199,7 @@ describe PostsController do
 
   describe "PUT update" do
     describe "when not authorized" do
-      before { put :update }
+      before { put :update, user_id: user.username, id: a_post.code, post: {} }
       it { should redirect_to(new_user_session_path) }
     end
 
@@ -255,7 +255,7 @@ describe PostsController do
 
   describe "DELETE destroy" do
     describe "when not authorized" do
-      before { delete :destroy }
+      before { delete :destroy, user_id: user.username, id: a_post.code }
       it { should redirect_to(new_user_session_path) }
     end
 

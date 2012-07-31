@@ -47,7 +47,7 @@ describe UsersController do
 
   describe "POST follow" do
     describe "when not authorized" do
-      before { post :follow }
+      before { post :follow, id: user.username }
       it { should redirect_to(new_user_session_path) }
     end
 

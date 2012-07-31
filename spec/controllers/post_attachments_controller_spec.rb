@@ -17,7 +17,7 @@ describe PostAttachmentsController do
 
   describe "GET new" do
     describe "when not authorized" do
-      before { get :new }
+      before { get :new, user_id: user.username, post_id: a_post.code }
       it { should redirect_to(new_user_session_path) }
     end
 
@@ -46,7 +46,7 @@ describe PostAttachmentsController do
 
   describe "POST create" do
     describe "when not authorized" do
-      before { post :create, post: {} }
+      before { post :create, user_id: user.username, post_id: a_post.code, post_attachment: {} }
       it { should redirect_to(new_user_session_path) }
     end
 
