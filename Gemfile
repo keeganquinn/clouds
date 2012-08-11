@@ -9,6 +9,7 @@ gem 'devise-encryptable'
 gem 'haml'
 gem 'jquery-rails'
 gem 'mysql2'
+gem 'sass'
 gem 'thinking-sphinx'
 gem 'will_paginate'
 
