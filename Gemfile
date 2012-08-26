@@ -24,6 +24,7 @@ group :development, :test do
   gem 'autotest-rails'
   gem 'factory_girl_rails'
   gem 'rspec-rails'
+  gem 'sdoc'
   gem 'simplecov', :require => false
   gem 'thin'
 end
