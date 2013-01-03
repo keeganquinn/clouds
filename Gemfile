@@ -10,7 +10,7 @@ gem 'haml'
 gem 'jquery-rails'
 gem 'mysql2'
 gem 'sass'
-gem 'thinking-sphinx'
+gem 'thinking-sphinx', '2.0.13'
 gem 'will_paginate'
 
 group :assets do
