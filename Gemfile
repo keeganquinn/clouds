@@ -17,7 +17,7 @@ gem 'will_paginate'
 group :assets do
   gem 'coffee-rails'
   gem 'sass-rails'
-  gem 'therubyracer'
+  gem 'therubyracer', '~> 0.10.2'
   gem 'uglifier'
 end
 
