@@ -10,16 +10,15 @@ gem 'haml'
 gem 'jquery-rails'
 gem 'libv8'
 gem 'mysql2'
+gem 'protected_attributes'
 gem 'sass'
 gem 'thinking-sphinx', '2.0.13'
 gem 'will_paginate'
 
-group :assets do
-  gem 'coffee-rails'
-  gem 'sass-rails'
-  gem 'therubyracer', '~> 0.10.2'
-  gem 'uglifier'
-end
+gem 'coffee-rails'
+gem 'sass-rails'
+gem 'therubyracer', '~> 0.10.2'
+gem 'uglifier'
 
 group :development, :test do
   gem 'autotest-rails'
