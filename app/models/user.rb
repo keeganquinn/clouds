@@ -8,9 +8,9 @@ class User < ActiveRecord::Base
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :token_authenticatable, :confirmable
+         :confirmable
 
-  default_scope order: 'username ASC'
+  default_scope -> { order 'username ASC' }
 
   attr_accessible :email, :password, :password_confirmation, :remember_me
   attr_accessible :username, :name, :location, :content

@@ -1,7 +1,7 @@
 class PostAttachment < ActiveRecord::Base
   belongs_to :post
 
-  default_scope order: 'created_at DESC'
+  default_scope -> { order 'created_at DESC' }
 
   attr_accessible :filename, :content_type, :data
 

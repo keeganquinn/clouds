@@ -5,8 +5,8 @@ class Post < ActiveRecord::Base
   belongs_to :in_reply_to_post, class_name: "Post"
   has_many :replies, class_name: "Post", foreign_key: "in_reply_to_post_id"
 
-  default_scope order: 'created_at DESC'
-  scope :top, where('in_reply_to_post_id IS NULL')
+  default_scope -> { order 'created_at DESC' }
+  scope :top, -> { where 'in_reply_to_post_id IS NULL' }
 
   attr_accessible :in_reply_to_post_id, :code, :subject, :body, :published
 
