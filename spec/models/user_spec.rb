@@ -96,11 +96,11 @@ describe User do
     it { should respond_to(:followers) }
     it { should respond_to(:follower_users) }
 
-    its(:posts) { should be_instance_of(Array) }
-    its(:follows) { should be_instance_of(Array) }
-    its(:followed_users) { should be_instance_of(Array) }
-    its(:followers) { should be_instance_of(Array) }
-    its(:follower_users) { should be_instance_of(Array) }
+    its(:posts) { should respond_to(:size) }
+    its(:follows) { should respond_to(:size) }
+    its(:followed_users) { should respond_to(:size) }
+    its(:followers) { should respond_to(:size) }
+    its(:follower_users) { should respond_to(:size) }
   end
 
   describe "when username is too short" do

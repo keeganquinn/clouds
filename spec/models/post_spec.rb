@@ -34,9 +34,9 @@ describe Post do
     it { should respond_to(:replies) }
 
     its(:user) { should == user }
-    its(:post_attachments) { should be_instance_of(Array) }
+    its(:post_attachments) { should respond_to(:size) }
     its(:in_reply_to_post) { should be_blank }
-    its(:replies) { should be_instance_of(Array) }
+    its(:replies) { should respond_to(:size) }
   end
 
   describe "without a valid User" do
